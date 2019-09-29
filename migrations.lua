@@ -6,6 +6,8 @@ return {
       { "id", types.serial {unique = true, primary_key = true }},
       { "name", types.text {unique = true}},
       { "email", types.text {unique = true}},
+      { "password", types.varchar },
+      { "admin", types.boolean },
     })
   end,
 

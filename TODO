@@ -3,4 +3,15 @@
 #create package model
 admin page
 registration
+email verification for registration
+password reset email
 serve packages json :begun
+
+
+
+testing URLs right now:
+http://localhost:8080/newuser?name=admin&email=demonnic3@test.com&password=topsecretadmin&admin=true
+http://localhost:8080/newpackage?name=SuperHappyFunBall&user_id=1&version=1.0b2&extension=mpackage&description=Do%20not%20look%20directly%20at%20happy%20funball
+http://localhost:8080/packages
+http://localhost:8080/getuser1packages
+http://localhost:8080/login

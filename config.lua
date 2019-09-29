@@ -7,4 +7,5 @@ config({'development'}, {
     password = "pleasechangeme"
   }, 
   secret = "pleasechangeme",
+  salt = "12",
 })

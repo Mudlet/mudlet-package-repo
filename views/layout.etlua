@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<!-- Template by html.am -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="static/stylesheet.css">
+		<title><%= page_title or "Mudlet Package Repository" %></title>
+	</head>
+	<body>
+    <header id="header">
+      <img style='height: 100%; width: 10%; object-fit: contain; align=left' src="static/images/mudlet.png">
+      <h1>Mudlet Package Repository</h1>
+		</header>
+		<div id="wrapper">
+			<main>
+				<div id="content">
+					<div class="innertube">
+						  <% content_for("inner") %>
+					</div>
+				</div>
+			</main>
+			<nav id="nav">
+				<div class="innertube">
+					<h3>Navigation links</h3>
+					<ul>
+						<li><a href="<%= url_for("index") %>">Index</a></li>
+						<li><a href="<%= url_for("login") %>">Login</a></li>
+						<li><a href="#">Register</a></li>
+						<li><a href="#">Packages</a></li>
+						<li><a href="#">Link 5</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</body>
+</html>

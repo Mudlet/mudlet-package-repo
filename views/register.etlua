@@ -1,0 +1,41 @@
+<h1>Register</h1>
+<div id="content" class="admin_form">
+	<form action="<%= build_url("register") %>" method="post">
+		<div>
+			<label class="title">username: </label>
+			<span class="fields">
+				<input type="text" name="name" />
+			</span>
+		</div>
+
+		<div>
+			<label class="title">password: </label>
+			<span class="fields">
+				<input type="password" name="password" />
+			</span>
+		</div>
+
+		<div>
+			<label class="title">Repeat pass:</label>
+			<span class="fields">
+				<input type="password" name="password_repeat" />
+			</span>
+		</div>
+
+    <div>
+			<label class="title">email add:</label>
+			<span class="fields">
+				<input type="text" name="email" />
+			</span>
+		</div>
+    
+    <div>
+      <label class="title">admin</label>
+      <span class="fields">
+        <input type="checkbox" id="admin" name="admin" unchecked>
+      </span>
+    </div>
+
+		<button name="register">Register</button>
+	</form>
+</div>

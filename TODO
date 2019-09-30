@@ -1,12 +1,8 @@
-#setup postgresql with lapis
-#create user model
-#create package model
 admin page
-registration
 email verification for registration
 password reset email
 serve packages json :begun
-
+add i18n support
 
 
 testing URLs right now:

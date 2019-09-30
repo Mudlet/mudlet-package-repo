@@ -9,17 +9,18 @@ local Packages = require("models.packages")
 local login = require("controllers.login")
 local register = require("controllers.register")
 
+
+
 app:enable("etlua")
 app.layout = require('views.layout')
+
+local config_before = require("controllers.config")
+
+app:before_filter(config_before)
 -- base route
 app:get("index", "/", function(self)
   local name = self.session.name or "unknown"
-  return "Hello there, " .. name
-end)
-
-app:get("/user", function(self)
-  local u = Users:get_user("demonnic")
-  if u then return "Hello there " .. u.name end
+  return self.i18n("greeting", {name})
 end)
 
 app:get("/packages", function()
@@ -46,7 +47,7 @@ app:get("newpackage", "/newpackage", function(self)
     user_id = self.params.user_id or 1,
     extension = self.params.extension or "xml",
   })
-  if package then return "Package " .. self.params.name .. " created!" end
+  if package then return self.i18n("upload_success", {self.params.name}) end
 end)
 
 return app

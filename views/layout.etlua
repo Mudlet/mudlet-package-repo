@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <!-- Template by html.am -->
 <html>
 	<head>
@@ -23,9 +23,9 @@
 				<div class="innertube">
 					<h3>Navigation links</h3>
 					<ul>
-						<li><a href="<%= url_for("index") %>">Index</a></li>
-						<li><a href="<%= url_for("login") %>">Login</a></li>
-						<li><a href="#">Register</a></li>
+						<li><a href="<%= url_for("index") %>"><%= i18n("index_nav") %></a></li>
+						<li><a href="<%= url_for("login") %>"><%= i18n("login_nav") %></a></li>
+						<li><a href="#"><%= i18n("register_nav") %></a></li>
 						<li><a href="#">Packages</a></li>
 						<li><a href="#">Link 5</a></li>
 					</ul>

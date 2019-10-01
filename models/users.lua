@@ -22,13 +22,13 @@ function Users:create_user(user)
   if user then
     return user
   end
-  return false, {"err_create_user", {user.name}}
+  return false, i18n("err_create_user", {user.name})
 end
 
 function Users:verify_user(params)
   local user = self:get_user(params.name)
   if not user then
-    return false, {"err_invalid_user"}
+    return false, i18n("err_invalid_user")
   end
   local pass = user.name .. params.password .. token
   params.password = nil
@@ -37,7 +37,7 @@ function Users:verify_user(params)
   if verified then
     return user
   else
-    return false, {"err_invalid_user"}
+    return false, i18n("err_invalid_user")
   end
 end
 

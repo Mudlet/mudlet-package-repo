@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<!-- Template by html.am -->
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="static/stylesheet.css">
-		<title><%= page_title or "Mudlet Package Repository" %></title>
+		<title><%= page_title or i18n("website_name") %></title>
 	</head>
 	<body>
     <header id="header">
       <img style='height: 100%; width: 10%; object-fit: contain; align=left' src="static/images/mudlet.png">
-      <h1>Mudlet Package Repository</h1>
 		</header>
 		<div id="wrapper">
 			<main>
 				<div id="content">
 					<div class="innertube">
+          		<% if errors then %>
+		            <% render("views.error") %>
+		          <% end %>
 						  <% content_for("inner") %>
 					</div>
 				</div>
 			</main>
 			<nav id="nav">
 				<div class="innertube">
-					<h3>Navigation links</h3>
+					<h3><%= i18n("navigation_title") %></h3>
 					<ul>
 						<li><a href="<%= url_for("index") %>"><%= i18n("index_nav") %></a></li>
 						<li><a href="<%= url_for("login") %>"><%= i18n("login_nav") %></a></li>
-						<li><a href="#"><%= i18n("register_nav") %></a></li>
-						<li><a href="#">Packages</a></li>
-						<li><a href="#">Link 5</a></li>
+						<li><a href="<%= url_for("register") %>"><%= i18n("register_nav") %></a></li>
+						<li><a href="<%= url_for("packages") %>"><%= i18n("packages_nav") %></a></li>
 					</ul>
 				</div>
 			</nav>

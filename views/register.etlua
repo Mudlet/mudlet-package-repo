@@ -2,40 +2,40 @@
 <div id="content" class="admin_form">
 	<form action="<%= build_url("register") %>" method="post">
 		<div>
-			<label class="title">username: </label>
+			<label class="title"><%= i18n("username") %>: </label>
 			<span class="fields">
 				<input type="text" name="name" />
 			</span>
 		</div>
 
 		<div>
-			<label class="title">password: </label>
+			<label class="title"><%= i18n("password") %>: </label>
 			<span class="fields">
 				<input type="password" name="password" />
 			</span>
 		</div>
 
 		<div>
-			<label class="title">Repeat pass:</label>
+			<label class="title"><%= i18n("verify_password") %>:</label>
 			<span class="fields">
 				<input type="password" name="password_repeat" />
 			</span>
 		</div>
 
     <div>
-			<label class="title">email add:</label>
+			<label class="title"><%= i18n("email_address") %>:</label>
 			<span class="fields">
 				<input type="text" name="email" />
 			</span>
 		</div>
     
     <div>
-      <label class="title">admin</label>
+      <label class="title"><%= i18n("administrator") %></label>
       <span class="fields">
         <input type="checkbox" id="admin" name="admin" unchecked>
       </span>
     </div>
 
-		<button name="register">Register</button>
+		<button name="register"><%= i18n("register_nav") %></button>
 	</form>
 </div>

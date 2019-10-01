@@ -8,38 +8,33 @@ local Users = require("models.users")
 local Packages = require("models.packages")
 local login = require("controllers.login")
 local register = require("controllers.register")
-
+local app_helpers = require("lapis.application")
+local capture_errors,assert_error  = app_helpers.capture_errors, app_helpers.assert_error
 
 
 app:enable("etlua")
 app.layout = require('views.layout')
 
-local config_before = require("controllers.config")
+local config_before = require("controllers.config_before")
 
 app:before_filter(config_before)
 -- base route
-app:get("index", "/", function(self)
+app:get("index", "/", capture_errors(function(self)
   local name = self.session.name or "unknown"
   return self.i18n("greeting", {name})
-end)
+end))
 
-app:get("/packages", function()
+app:get("packages", "/packages", capture_errors(function()
   local packages = db.select("* from packages")
   return { json = packages}
-end)
+end))
 
 app:match("login", "/login", respond_to(login))
-
-app:get("/getuser1packages", function(self)
-  local user = Users:find(1)
-  local packages = user:get_packages()
-  return {json = packages}
-end)
 
 -- new user route
 app:match("register", "/register", respond_to(register))
 
-app:get("newpackage", "/newpackage", function(self)
+app:get("uploadpackage", "/uploadpackage", function(self)
   local package = Packages:create({
     name = self.params.name,
     version = self.params.version,

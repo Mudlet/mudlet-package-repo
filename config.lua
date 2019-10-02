@@ -8,4 +8,6 @@ config({'development'}, {
   }, 
   secret = "pleasechangeme",
   salt = "12",
+  body_size = "10m",
+  num_workers = 2,
 })

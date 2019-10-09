@@ -30,6 +30,8 @@ local function isFile(name)
   return false
 end
 
+-- use the above functions to check if the folders exist and 
+-- create them if they do not. 
 local function save_file(self)
   -- record our current directory so we can change back to it
   local cwd = lfs.currentdir()
@@ -92,15 +94,18 @@ return {
 
     
     -- validate file extension
-    local proper_extension = file_extension and (file_extension == "mpackage" or file_extension == "xml")
+    local valid_extensions = {"mpackage", "zip", "xml" }
+    local proper_extension = file_extension and table.contains(valid_extensions, file_extensions)
     assert_error(proper_extension, self.i18n("err_invalid_file_extension"))
     
     -- validate the content is proper for the extension claimed
-    if file_extension == "mpackage" then
+    if file_extension == "mpackage" or file_extensions == "zip" then
       assert_error(string.find(fcontent, zipheader) == 1, self.i18n("err_invalid_mpackage"))
     elseif file_extension == "xml" then
       assert_error(string.find(fcontent, mudlet_xml_header), self.i18n("err_invalid_mudlet_xml"))
     end
+
+    -- save the file to disk. function defined above.
     save_file(self)
     local url = string.format("data/%s/%s/%s/%s", self.session.name, self.params.name, self.params.version, filename)
     local user = Users:get_user(self.session.name)

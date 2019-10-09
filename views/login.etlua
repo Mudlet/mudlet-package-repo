@@ -1,20 +1,20 @@
-<h1>Login</h1>
+<h1><%=i18n("login_nav") %></h1>
 <div id="content" class="admin_form">
-	<form action="<%= build_url("login") %>" method="post">
-		<div>
-			<label class="title"><%= i18n("username") %></label>
-			<span class="fields">
-				<input type="text" name="name" />
-			</span>
-		</div>
+  <form action="<%= burl("login") %>" method="post">
+    <div>
+      <label class="title"><%= i18n("username") %></label>
+      <span class="fields">
+        <input type="text" name="name" />
+      </span>
+    </div>
 
-		<div>
-			<label class="title"><%= i18n("password") %></label>
-			<span class="fields">
-				<input type="password" name="password" />
-			</span>
-		</div>
+    <div>
+      <label class="title"><%= i18n("password") %></label>
+      <span class="fields">
+        <input type="password" name="password" />
+      </span>
+    </div>
 
-		<button name="login"><%= i18n("login") %></button>
-	</form>
+    <button name="login"><%= i18n("login") %></button>
+  </form>
 </div>

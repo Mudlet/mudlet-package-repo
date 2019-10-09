@@ -7,17 +7,23 @@ local Model = require("lapis.db.model").Model
 local Users = require("models.users")
 local Packages = require("models.packages")
 local login = require("controllers.login")
+local logout = require("controllers.logout")
 local register = require("controllers.register")
+local uploadpackage = require("controllers.uploadpackage")
+local verify_email = require("controllers.verifyemail")
 local app_helpers = require("lapis.application")
-local capture_errors,assert_error  = app_helpers.capture_errors, app_helpers.assert_error
+local capture_errors, assert_error = app_helpers.capture_errors, app_helpers.assert_error
 
 
 app:enable("etlua")
 app.layout = require('views.layout')
 
 local config_before = require("controllers.config_before")
+local check_auth = require("controllers.check_auth")
 
 app:before_filter(config_before)
+app:before_filter(check_auth)
+
 -- base route
 app:get("index", "/", capture_errors(function(self)
   local name = self.session.name or "unknown"
@@ -30,19 +36,9 @@ app:get("packages", "/packages", capture_errors(function()
 end))
 
 app:match("login", "/login", respond_to(login))
-
--- new user route
+app:match("logout", "/logout", logout)
 app:match("register", "/register", respond_to(register))
-
-app:get("uploadpackage", "/uploadpackage", function(self)
-  local package = Packages:create({
-    name = self.params.name,
-    version = self.params.version,
-    description = self.params.description or "",
-    user_id = self.params.user_id or 1,
-    extension = self.params.extension or "xml",
-  })
-  if package then return self.i18n("upload_success", {self.params.name}) end
-end)
+app:match("uploadpackage", "/uploadpackage", respond_to(uploadpackage))
+app:match("verifyemail", "/verifyemail", respond_to(verify_email))
 
 return app

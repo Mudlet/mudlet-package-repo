@@ -1,3 +1,4 @@
 *_temp/
 *.compiled
 logs/
+data/

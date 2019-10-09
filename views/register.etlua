@@ -1,33 +1,33 @@
 <h1>Register</h1>
 <div id="content" class="admin_form">
-	<form action="<%= build_url("register") %>" method="post">
-		<div>
-			<label class="title"><%= i18n("username") %>: </label>
-			<span class="fields">
-				<input type="text" name="name" />
-			</span>
-		</div>
-
-		<div>
-			<label class="title"><%= i18n("password") %>: </label>
-			<span class="fields">
-				<input type="password" name="password" />
-			</span>
-		</div>
-
-		<div>
-			<label class="title"><%= i18n("verify_password") %>:</label>
-			<span class="fields">
-				<input type="password" name="password_repeat" />
-			</span>
-		</div>
+  <form action="<%= burl("register") %>" method="post">
+    <div>
+      <label class="title"><%= i18n("username") %>: </label>
+      <span class="fields">
+        <input type="text" name="name" />
+      </span>
+    </div>
 
     <div>
-			<label class="title"><%= i18n("email_address") %>:</label>
-			<span class="fields">
-				<input type="text" name="email" />
-			</span>
-		</div>
+      <label class="title"><%= i18n("password") %>: </label>
+      <span class="fields">
+        <input type="password" name="password" />
+      </span>
+    </div>
+
+    <div>
+      <label class="title"><%= i18n("verify_password") %>:</label>
+      <span class="fields">
+        <input type="password" name="password_repeat" />
+      </span>
+    </div>
+
+    <div>
+      <label class="title"><%= i18n("email_address") %>:</label>
+      <span class="fields">
+        <input type="text" name="email" />
+      </span>
+    </div>
     
     <div>
       <label class="title"><%= i18n("administrator") %></label>
@@ -36,6 +36,6 @@
       </span>
     </div>
 
-		<button name="register"><%= i18n("register_nav") %></button>
-	</form>
+    <button name="register"><%= i18n("register_nav") %></button>
+  </form>
 </div>

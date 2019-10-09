@@ -7,6 +7,7 @@ It is implemented using lapis, which is a lua web framework that runs inside of 
 * luacrypto https://github.com/luaforge/luacrypto
 * bcrypt http://github.com/mikejsavage/lua-bcrypt
 * i18n https://github.com/kikito/i18n.lua
+* lua-resty-mail https://github.com/GUI/lua-resty-mail
 
 We do not actually make use of lapis-chan, but it served as an example from which examples and inspiration were drawn: https://github.com/karai17/lapis-chan
 The eventual aim is to have it available as a docker container which can read a config.lua file and start the server up. Currently it's being worked on locally using a local postgresql database.
@@ -19,6 +20,7 @@ The eventual aim is to have it available as a docker container which can read a 
 * luarocks install luacrypto
 * luarocks install bcrypt
 * luarocks install i18n
+* luarocks install lua-resty-mail
 
 * Install and configure postgresql. Create mudletrepo user, password, and database in plsql. Check the development config in config.lua for defaults currently in use during development. TODO: put exact plsql commands to run here
 

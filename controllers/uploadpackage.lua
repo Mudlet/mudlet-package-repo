@@ -5,18 +5,15 @@ local lfs = require('lfs')
 local Packages = require("models.packages")
 local Users = require("models.users")
 
-local function isFile(name)
-  if not isDir(name) then
-    return os.rename(name,name) and true or false
-  end
-  return false
-end
-
+-- if you can change the name of a thing to itself, it is a file or folder
+-- best work around I could find for testing this
 local function isFileOrDir(name)
   if type(name)~="string" then return false end
   return os.rename(name, name)
 end
 
+-- use LFS's chdir() function to determine if the target is a directory
+-- there is no check for if something is a file or directory in lua or LFS by default
 local function isDir(name)
   if type(name)~="string" then return false end
   local cd = lfs.currentdir()
@@ -24,6 +21,15 @@ local function isDir(name)
   lfs.chdir(cd)
   return is, err
 end
+
+-- If it isn't a directory, but we can rename it to itself, then it is a file
+local function isFile(name)
+  if not isDir(name) then
+    return os.rename(name,name) and true or false
+  end
+  return false
+end
+
 
 return {
   GET = capture_errors(function(self)

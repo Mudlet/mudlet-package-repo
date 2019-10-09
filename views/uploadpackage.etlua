@@ -7,7 +7,7 @@ Please end my pain.
     <%= i18n("upload_button_header") %>
     <br>
     <input type="button" id="choosePackageFile" value="<%= i18n("choose_file") %>" onclick="document.getElementById('file').click();"/>
-    <input type="file" name="file" id="file" accept=".mpackage,.xml" style="display:none;" />
+    <input type="file" name="file" id="file" accept=".mpackage,.xml,.zip" style="display:none;" />
     <br>
     <br>
     <%= i18n("package_name") %>

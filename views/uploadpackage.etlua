@@ -1,0 +1,54 @@
+<!-- 
+Help me, my creator knows nothing of html or css
+I suffer every time I look in the mirror
+Please end my pain.
+-->
+<form action="<%= burl("uploadpackage") %>" method="post" enctype="multipart/form-data">
+    <%= i18n("upload_button_header") %>
+    <br>
+    <input type="button" id="choosePackageFile" value="<%= i18n("choose_file") %>" onclick="document.getElementById('file').click();"/>
+    <input type="file" name="file" id="file" accept=".mpackage,.xml" style="display:none;" />
+    <br>
+    <br>
+    <%= i18n("package_name") %>
+    <br>
+    <div>
+      <span class="fields">
+        <input type="text" name = "name">
+      </span>
+    </div>
+    <br>
+    <%= i18n("package_version") %>
+    <br>
+    <div>
+      <span class="fields">
+        <input type="text" name = "version">
+      </span>
+    </div>
+    <br>
+    <%= i18n("package_description") %>
+    <br>
+    <div>
+      <span class="fields">
+        <input type="text" name = "description">
+      </span>
+    </div>
+    <br>
+    <%= i18n("package_game") %>
+    <br>
+    <div>
+      <span class="fields">
+        <input type="text" name = "game">
+      </span>
+    </div>
+    <br>
+    <%= i18n("package_dependencies") %>
+    <br>
+    <div>
+      <span class="fields">
+        <input type="text" name = "dependencies">
+      </span>
+    </div>
+    <br>
+    <input type="submit" value="<%= i18n("upload_package") %>" name="submit">
+</form>

@@ -1,4 +1,4 @@
-<h1>Register</h1>
+<h1><%=i18n('register_nav') %></h1>
 <div id="content" class="admin_form">
   <form action="<%= burl("register") %>" method="post">
     <div>

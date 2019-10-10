@@ -22,7 +22,7 @@ The eventual aim is to have it available as a docker container which can read a 
 * luarocks install i18n
 * luarocks install lua-resty-mail
 
-* Install and configure postgresql. Create mudletrepo user, password, and database in plsql. Check the development config in config.lua for defaults currently in use during development. TODO: put exact plsql commands to run here
+* Install and configure postgresql. Create mudletrepo user, password, and database in plsql ([instructions](https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e)). Check the development config in config.lua for defaults currently in use during development.
 
 * run `lapis migrate` to perform the migrations on the database and get it setup
 

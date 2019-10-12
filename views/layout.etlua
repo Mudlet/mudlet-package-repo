@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link href="<%= burl('static/stylesheet.css')%>"/>
     <% render("views.stylesheet") %>
     <title><%= page_title or i18n("website_name") %></title>
   </head>

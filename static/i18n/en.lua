@@ -31,7 +31,7 @@ return {
     err_not_logged_in = "You must log in first",
     err_file_access = "Could not access file",
     err_save_file = "Could not save file",
-    err_invalid_file_extension = "Package extension must be .mpackage or .xml",
+    err_invalid_file_extension = "Package extension must be .mpackage, .zip or .xml",
     err_invalid_mpackage = "Mpackage file invalid",
     err_invalid_mudlet_xml = "Invalid XML for Mudlet package",
     err_email_not_verified = "Email not verified. You must verify your email address before you may upload.",

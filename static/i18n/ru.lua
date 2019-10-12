@@ -27,7 +27,7 @@ return {
     package_version = "Версия",
     packages_nav = "Пакеты",
     password = "пароль",
-    register_nav = "Регистрация",
+    register_nav = "Зарегистрироватся",
     upload_button_header = "Выберите пакет для загрузки",
     upload_package = "Загрузить пакет",
     upload_success = "Пакет %s загружен успешно",

@@ -21,7 +21,7 @@ end
 function Users:create_user(user)
   trim(user, {"name", "password", "admin", "email", "verified"}, nil)
   local hash = bcrypt.digest(user.name .. user.password .. token, config.salt)
-  email_verification = uuid()
+  local email_verification = uuid()
   user.password = nil
   local user = self:create {
     name = user.name,

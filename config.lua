@@ -8,7 +8,7 @@ config({'development'}, {
   }, 
   secret = "pleasechangeme",
   salt = "12",
-  body_size = "10m",
+  body_size = "20m",
   num_workers = 2,
   data_dir = "data",
   smtp_host = "127.0.0.1",

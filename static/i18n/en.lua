@@ -15,6 +15,7 @@ return {
     login = "login",
     verify_password = "Verify password",
     email_address = "email address",
+    email_address_wontshare = "We'll never share your email with anyone else.",
     administrator = "administrator",
     user_created = "User created",
     error_header = "ERROR",

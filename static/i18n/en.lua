@@ -25,7 +25,7 @@ return {
     package_name = "Package name",
     package_version = "Version",
     package_description = "Description",
-    package_game = "Game package is intended for",
+    package_game = "Game the package is intended for",
     package_dependencies = "Dependencies. Package names as comma separated values",
     upload_nav = "Upload Package",
     err_not_logged_in = "You must log in first",

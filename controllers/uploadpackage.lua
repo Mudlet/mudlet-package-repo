@@ -94,8 +94,7 @@ return {
 
     
     -- validate file extension
-    local valid_extensions = {"mpackage", "zip", "xml" }
-    local proper_extension = file_extension and table.contains(valid_extensions, file_extensions)
+    local proper_extension = file_extension and ( file_extension == "xml" or file_extension == "zip" or file_extension == "mpackage" )
     assert_error(proper_extension, self.i18n("err_invalid_file_extension"))
     
     -- validate the content is proper for the extension claimed

@@ -1,41 +1,38 @@
 <h1><%=i18n('register_nav') %></h1>
 <div id="content" class="admin_form">
   <form action="<%= burl("register") %>" method="post">
-    <div>
+    <div class="form-group">
       <label class="title"><%= i18n("username") %>: </label>
       <span class="fields">
-        <input type="text" name="name" />
+        <input type="text" class="form-control" name="name" placeholder="<%= i18n("username") %>"/>
       </span>
     </div>
 
-    <div>
+    <div class="form-group">
       <label class="title"><%= i18n("password") %>: </label>
       <span class="fields">
-        <input type="password" name="password" />
+        <input type="password" class="form-control" name="password" placeholder="<%= i18n("password") %>"/>
       </span>
     </div>
 
-    <div>
+    <div class="form-group">
       <label class="title"><%= i18n("verify_password") %>:</label>
       <span class="fields">
-        <input type="password" name="password_repeat" />
+        <input type="password" class="form-control" name="password_repeat" placeholder="<%= i18n("verify_password") %>"/>
       </span>
     </div>
 
-    <div>
+    <div class="form-group">
       <label class="title"><%= i18n("email_address") %>:</label>
-      <span class="fields">
-        <input type="text" name="email" />
-      </span>
-    </div>
-    
-    <div>
-      <label class="title"><%= i18n("administrator") %></label>
-      <span class="fields">
-        <input type="checkbox" id="admin" name="admin" unchecked>
-      </span>
+      <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="<%= i18n("email_address") %>"/>
+      <small id="emailHelp" class="form-text text-muted"><%= i18n("email_address_wontshare") %></small>
     </div>
 
-    <button name="register"><%= i18n("register_nav") %></button>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="admin" name="admin" unchecked>
+      <label class="form-check-label" for="admin"><%= i18n("administrator") %></label>
+    </div>
+
+    <button name="register" class="btn btn-primary"><%= i18n("register_nav") %></button>
   </form>
 </div>

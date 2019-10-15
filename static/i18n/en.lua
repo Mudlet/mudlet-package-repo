@@ -8,7 +8,7 @@ return {
     packages_nav = "Packages",
     err_invalid_user = "Error: Invalid username or password",
     err_create_user = "Error: Unable to create user %s",
-    err_user_exists = "Error: User %s already exists",
+    err_user_exists = "Error: User %s already exists or email %s is already taken",
     username = "username",
     password = "password",
     login = "login",

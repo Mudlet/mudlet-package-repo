@@ -16,22 +16,22 @@ return {
     })
     if self.params.admin == nil then self.params.admin = false end
     local u = Users:get_user(self.params.name)
-    if u then 
+    if u then
       assert_error(false, self.i18n("err_user_exists", {self.params.name}))
     end
     local user = {
       name = self.params.name,
       password = self.params.password,
       email = self.params.email,
-      admin = self.params.admin,    
+      admin = self.params.admin,
     }
     local u = assert_error(Users:create_user(user))
     if u then
       local ver_code = u.email_ver_code
       local alternate_url = string.format("%sverifyemail", self.config.base_url)
       local url = string.format("%s?ver_code=%s&email=%s", alternate_url, ver_code, u.email)
-      local message_body = self.i18n("verify_email_body", {u.name, base_url, url, alternate_url, ver_code})
-      local message_subject = self.i18n("verify_email_subject", {self.i18n("website_name")})
+      local message_body = self.i18n("verify_email_body", {u.name, self.config.website_name, url, alternate_url, ver_code})
+      local message_subject = self.i18n("verify_email_subject", {self.config.website_name})
 
       local mailer, err = mail.new({
         host = self.config.smtp_host or "smtp.gmail.com",

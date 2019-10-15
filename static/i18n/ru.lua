@@ -40,6 +40,5 @@ return {
     verify_email_nav = "Подтвердить электронную почту",
     verify_email_subject = "Пожалуйста, подтвердите свой адрес электронной почты в %s",
     verify_password = "Проверьте пароль",
-    website_name = "Репозиторий Пакетов Mudlet",
   }
 }

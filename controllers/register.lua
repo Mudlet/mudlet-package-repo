@@ -30,7 +30,7 @@ return {
       local ver_code = u.email_ver_code
       local alternate_url = string.format("%sverifyemail", self.config.base_url)
       local url = string.format("%s?ver_code=%s&email=%s", alternate_url, ver_code, u.email)
-      local message_body = self.i18n("verify_email_body", {u.name, base_url, url, alternate_url, ver_code})
+      local message_body = self.i18n("verify_email_body", {u.name, self.config.base_url, url, alternate_url, ver_code})
       local message_subject = self.i18n("verify_email_subject", {self.i18n("website_name")})
 
       local mailer, err = mail.new({

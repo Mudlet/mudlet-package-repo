@@ -1,0 +1,25 @@
+<h1>
+  <%=i18n("change_password") %>
+</h1>
+<hr>
+<div id="content" class="form">
+  <form action="<%= burl('account') %>" method="post">
+    <div class="form-group">
+      <label for="old_password">Old password</label>
+      <!-- TODO: this should re-use validation length from registration -->
+      <input type="password" minlength="8" class="form-control" id="old_password" autocomplete="current-password" required>
+    </div>
+    <div class="form-group">
+      <label for="new_password">New password</label>
+      <input type="password" minlength="8" class="form-control" id="new_password" autocomplete="new-password" required>
+    </div>
+    <div class="form-group">
+      <label for="confirm_new_password">Confirm new password</label>
+      <input type="password" minlength="8" class="form-control" id="confirm_new_password" autocomplete="new-password" required>
+    </div>
+    <small id="passwordHelpBlock" class="form-text text-muted">
+      Your password must be 8+ characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+    </small>
+    <button type="submit" class="btn btn-light">Update password</button>
+  </form>
+</div>

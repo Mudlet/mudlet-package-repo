@@ -36,6 +36,7 @@
             <li><a href="<%= url_for("login") %>"><%= i18n("login_nav") %></a></li>
             <li><a href="<%= url_for("register") %>"><%= i18n("register_nav") %></a></li>
             <% end %>
+            <li><a href="<%= url_for("account") %>"><%= i18n("account_nav") %></a></li>
             <li><a href="<%= url_for("packages") %>"><%= i18n("packages_nav") %></a></li>
             <li><a href="<%= url_for("uploadpackage") %>"><%= i18n("upload_nav") %></a></li>
           </ul>

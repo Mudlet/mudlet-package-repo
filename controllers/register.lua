@@ -7,6 +7,7 @@ return {
   GET = capture_errors(function(self)
     return { render = "register" }
   end),
+
   POST = capture_errors(function(self)
     validate.assert_valid(self.params, {
       { "name", exists = true, min_length = 2, max_length = 25 },
@@ -14,11 +15,14 @@ return {
       { "password_repeat", equals = self.params.password },
       { "email", exists = true, min_length = 5 },
     })
+
     if self.params.admin == nil then self.params.admin = false end
-    local u = Users:get_user(self.params.name)
+
+    local u = Users:get_user(self.params.name) or Users:get_user_by_email(self.params.email)
     if u then
-      assert_error(false, self.i18n("err_user_exists", {self.params.name}))
+      assert_error(false, self.i18n("err_user_exists", {self.params.name, self.params.email}))
     end
+
     local user = {
       name = self.params.name,
       password = self.params.password,

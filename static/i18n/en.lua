@@ -1,6 +1,7 @@
 return {
   en = {
     upload_success = "Package %s uploaded successfully",
+    change_password = "Change password",
     greeting = "Hello there, %s",
     login_nav = "Login",
     register_nav = "Register",
@@ -13,6 +14,7 @@ return {
     password = "password",
     login = "login",
     verify_password = "Verify password",
+    password_updated = "Password updated successfully",
     email_address = "email address",
     email_address_wontshare = "We'll never share your email with anyone else.",
     administrator = "administrator",
@@ -28,6 +30,7 @@ return {
     package_game = "Game the package is intended for",
     package_dependencies = "Dependencies. Package names as comma separated values",
     upload_nav = "Upload Package",
+    account_nav = "Account",
     err_not_logged_in = "You must log in first",
     err_file_access = "Could not access file",
     err_save_file = "Could not save file",

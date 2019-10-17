@@ -12,12 +12,15 @@ return {
     return { render = "account" }
   end),
   POST = capture_errors(function(self)
-    for k,v in pairs(self.params) do ngx.log(ngx.ERR,k) end
-    ngx.log(ngx.ERR, "done printing params")
     validate.assert_valid(self.params, {
       { "new_password", exists = true, min_length = 8, "Please enter the new password." },
-      { "confirm_new_password", equals = self.params.new_password },
+      { "confirm_new_password", equals = self.params.new_password,
+            "Make sure your confirmation password matches the new password." },
     })
+
+    self.params.password = self.params.old_password
+    self.params.name = self.session.name
+    assert_error(Users:verify_user(self.params), "Old password must match.")
 
     -- if self.params.admin == nil then self.params.admin = false end
     -- local u = Users:get_user(self.params.name)

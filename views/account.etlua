@@ -5,21 +5,19 @@
 <div id="content" class="form">
   <form action="<%= burl('account') %>" method="post">
     <div class="form-group">
-      <label for="old_password">Old password</label>
+      <label for="old_password"><%= i18n("old_password") %></label>
       <!-- TODO: this should re-use validation length from registration -->
       <input type="password" minlength="8" class="form-control" id="old_password" name="old_password" autocomplete="current-password" required>
     </div>
     <div class="form-group">
-      <label for="new_password">New password</label>
+      <label for="new_password"><%= i18n("new_password") %></label>
       <input type="password" minlength="8" class="form-control" id="new_password" name="new_password" autocomplete="new-password" required>
     </div>
     <div class="form-group">
-      <label for="confirm_new_password">Confirm new password</label>
+      <label for="confirm_new_password"><%= i18n("confirm_new_password") %></label>
       <input type="password" minlength="8" class="form-control" id="confirm_new_password" name="confirm_new_password" autocomplete="new-password" required>
     </div>
-    <small id="passwordHelpBlock" class="form-text text-muted">
-      Your password must be 8+ characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-    </small>
-    <button type="submit" class="btn btn-light">Update password</button>
+    <small class="form-text text-muted"><%= i18n("password_help") %></small>
+    <button type="submit" class="btn btn-light"><%= i18n("update_password") %></button>
   </form>
 </div>

@@ -37,6 +37,15 @@ function Users:create_user(user)
   return false, i18n("err_create_user", {user.name})
 end
 
+function Users:update_password(username, newpassword)
+  local user = Users:find({name = username})
+  assert(user)
+
+  local hash = bcrypt.digest(user.name .. newpassword .. token, config.salt)
+
+  user:update({password = hash})
+end
+
 function Users:verify_user(params)
   local user = self:get_user(params.name)
   if not user then

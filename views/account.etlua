@@ -1,0 +1,23 @@
+<h1>
+  <%=i18n("change_password") %>
+</h1>
+<hr>
+<div id="content" class="form">
+  <form action="<%= burl('account') %>" method="post">
+    <div class="form-group">
+      <label for="old_password"><%= i18n("old_password") %></label>
+      <!-- TODO: this should re-use validation length from registration -->
+      <input type="password" minlength="8" class="form-control" id="old_password" name="old_password" autocomplete="current-password" required>
+    </div>
+    <div class="form-group">
+      <label for="new_password"><%= i18n("new_password") %></label>
+      <input type="password" minlength="8" class="form-control" id="new_password" name="new_password" autocomplete="new-password" required>
+    </div>
+    <div class="form-group">
+      <label for="confirm_new_password"><%= i18n("confirm_new_password") %></label>
+      <input type="password" minlength="8" class="form-control" id="confirm_new_password" name="confirm_new_password" autocomplete="new-password" required>
+    </div>
+    <small class="form-text text-muted"><%= i18n("password_help") %></small>
+    <button type="submit" class="btn btn-light"><%= i18n("update_password") %></button>
+  </form>
+</div>

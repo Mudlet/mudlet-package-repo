@@ -1,5 +1,6 @@
 return {
   ru = {
+    account_nav = "Аккаунт",
     administrator = "администратор",
     choose_file = "Выберите пакет",
     email_address = "адрес электронной почты",

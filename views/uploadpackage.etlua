@@ -1,54 +1,35 @@
-<!-- 
-Help me, my creator knows nothing of html or css
-I suffer every time I look in the mirror
-Please end my pain.
--->
-<form action="<%= burl("uploadpackage") %>" method="post" enctype="multipart/form-data">
-    <%= i18n("upload_button_header") %>
-    <br>
-    <input type="button" id="choosePackageFile" value="<%= i18n("choose_file") %>" onclick="document.getElementById('file').click();"/>
+<form action="<%= burl('uploadpackage') %>" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="choosePackageFile">
+      <%= i18n("upload_button_header") %>
+    </label>
+    <input class="form-control" class="btn btn-light" type="button" id="choosePackageFile" value="<%= i18n('choose_file') %>" onclick="document.getElementById('file').click();" />
     <input type="file" name="file" id="file" accept=".mpackage,.xml,.zip" style="display:none;" />
-    <br>
-    <br>
-    <%= i18n("package_name") %>
-    <br>
-    <div>
-      <span class="fields">
-        <input type="text" name = "name">
-      </span>
-    </div>
-    <br>
-    <%= i18n("package_version") %>
-    <br>
-    <div>
-      <span class="fields">
-        <input type="text" name = "version">
-      </span>
-    </div>
-    <br>
-    <%= i18n("package_description") %>
-    <br>
-    <div>
-      <span class="fields">
-        <input type="text" name = "description">
-      </span>
-    </div>
-    <br>
-    <%= i18n("package_game") %>
-    <br>
-    <div>
-      <span class="fields">
-        <input type="text" name = "game">
-      </span>
-    </div>
-    <br>
-    <%= i18n("package_dependencies") %>
-    <br>
-    <div>
-      <span class="fields">
-        <input type="text" name = "dependencies">
-      </span>
-    </div>
-    <br>
-    <input type="submit" value="<%= i18n("upload_package") %>" name="submit">
+  </div>
+  <div class="form-group">
+    <label for="name">
+      <%= i18n("package_name") %></label>
+    <input class="form-control" type="text" name="name" id="name">
+  </div>
+  <div class="form-group">
+    <label for="version">
+      <%= i18n("package_version") %></label>
+    <input class="form-control" type="text" name="version" id="version">
+  </div>
+  <div class="form-group">
+    <label for="description">
+      <%= i18n("package_description") %></label>
+    <input class="form-control" type="text" name="description" id="description">
+  </div>
+  <div class="form-group">
+    <label for="game">
+      <%= i18n("package_game") %></label>
+    <input class="form-control" type="text" name="game" id="game">
+  </div>
+  <div class="form-group">
+    <label for="dependencies">
+      <%= i18n("package_dependencies") %></label>
+    <input class="form-control" type="text" name="dependencies" id="dependencies">
+  </div>
+  <input class="btn btn-primary" type="submit" value="<%= i18n('upload_package') %>" name="submit">
 </form>

@@ -46,15 +46,14 @@ function Users:update_password(username, newpassword)
   user:update({password = hash})
 end
 
-function Users:verify_user(params)
-  local user = self:get_user(params.name)
+function Users:verify_user(name, password)
+  local user = self:get_user(name)
   if not user then
     return false, i18n("err_invalid_user")
   end
-  local pass = user.name .. params.password .. token
-  params.password = nil
+  local pass = user.name .. password .. token
   local verified = bcrypt.verify(pass, user.password)
-  pass = nil
+  pass, password = nil, nil
   if verified then
     return user
   else

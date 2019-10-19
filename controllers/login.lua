@@ -10,7 +10,7 @@ return {
     return { render = "login" }
   end),
   POST = capture_errors(function(self)
-    local user = assert_error(Users:verify_user(self.params))
+    local user = assert_error(Users:verify_user(self.params.name, self.params.password))
     self.session.name = user.name
     self.session.admin = user.admin
     return "Successfully logged in!"

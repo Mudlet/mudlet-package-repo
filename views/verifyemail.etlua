@@ -1,20 +1,19 @@
-<h1><%=i18n("verify_email_nav") %></h1>
+<h1>
+  <%=i18n("verify_email_nav") %>
+</h1>
+<hr>
 <div id="content" class="form">
   <form action="<%= burl("verifyemail") %>" method="post">
-    <div>
-      <label class="title"><%= i18n("email_address") %></label>
-      <span class="fields">
-        <input type="text" name="email" />
-      </span>
+    <div class="form-group">
+      <label for="email"><%= i18n("email_address") %></label>
+      <input type="text" class="form-control" id="email" name="email" />
     </div>
 
-    <div>
-      <label class="title"><%= i18n("verification_code") %></label>
-      <span class="fields">
-        <input type="text" name="ver_code" />
-      </span>
+    <div class="form-group">
+      <label for="ver_code"><%= i18n("verification_code") %></label>
+      <input type="text" class="form-control" id="ver_code" name="ver_code" />
     </div>
 
-    <button name="verify"><%= i18n("verify_email_nav") %></button>
+    <button name="verify" class="btn btn-light"><%= i18n("verify_email_nav") %></button>
   </form>
 </div>

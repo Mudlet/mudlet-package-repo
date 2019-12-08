@@ -27,13 +27,13 @@ return capture_errors(function(self)
   if self.req.headers['accept-language'] then
     detected_locale = self.split_string(self.req.headers['accept-language'], ",")[1]
   end
-  
+
   -- load in locale files
   i18n.loadFile("static/i18n/en.lua")
   i18n.loadFile("static/i18n/ru.lua")
   i18n.loadFile("static/i18n/de.lua")
   i18n.loadFile("static/i18n/it.lua")
-  
+
   -- set the actual locale
   i18n.setLocale(self.session.locale or detected_locale or "en")
   self.i18n = i18n

@@ -23,7 +23,7 @@ return {
     login = "login",
     verify_password = "Verify password",
     password_updated = "Password changed successfully.",
-    email_address = "email address",
+    email_address = "Email address",
     email_address_wontshare = "We'll never share your email with anyone else.",
     administrator = "administrator",
     user_created = "User created",
@@ -49,8 +49,8 @@ return {
     verify_email_subject = "Please verify your email address with %s",
     verify_email_body = "Hello %s. In order to verify your email address for your account with %s, please visit %s\n\nIf that url does not work, visit %s and enter your email address and the verification code %s .",
     logout_nav = "Logout",
-    verify_email_nav = "Verify Email",
-    verification_code = "verification code",
+    verify_email_nav = "Verify email",
+    verification_code = "Verification code",
     verification_mismatch = "Email and verification code do not match, please check them and try again",
     verification_success = "Thank you for verifying your email address. You may now upload packages"
   }

@@ -30,8 +30,8 @@ local function isFile(name)
   return false
 end
 
--- use the above functions to check if the folders exist and 
--- create them if they do not. 
+-- use the above functions to check if the folders exist and
+-- create them if they do not.
 local function save_file(self)
   -- record our current directory so we can change back to it
   local cwd = lfs.currentdir()
@@ -39,21 +39,21 @@ local function save_file(self)
 
   -- start in the data directory
   assert_error(lfs.chdir(self.config.data_dir))
-  
+
   -- create username directory if it doesn't exist, validate it's a dir and enter it
   if not isFileOrDir(self.session.name) then
     lfs.mkdir(self.session.name)
   end
   assert_error(isDir(self.session.name), self.i18n("err_save_file"))
   lfs.chdir(self.session.name)
-  
+
   -- and again for the pkg name
   if not isFileOrDir(self.params.name) then
     lfs.mkdir(self.params.name)
   end
   assert_error(isDir(self.params.name), self.i18n("err_save_file"))
   lfs.chdir(self.params.name)
-  
+
   -- and again for the pkg version
   if not isFileOrDir(self.params.version) then
     lfs.mkdir(self.params.version)
@@ -64,7 +64,7 @@ local function save_file(self)
   local file = io.open(filename, 'w')
   file:write(self.params.file.content)
   file:close()
-  lfs.chdir(cwd)  
+  lfs.chdir(cwd)
 end
 
 return {
@@ -77,7 +77,7 @@ return {
     -- must be logged in to upload
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
     assert_error(self.session.verified, self.i18n("err_email_not_verified"))
-    
+
     -- must provide a file, a name, and a version
     validate.assert_valid(self.params, {
       { "name", exists = true, min_length = 2 },
@@ -92,13 +92,14 @@ return {
     local file_extension = self.split_string(fname, "%.")[2]
     local filename = string.format("%s-%s.%s", self.params.name, self.params.version, file_extension)
 
-    
+
     -- validate file extension
-    local proper_extension = file_extension and ( file_extension == "xml" or file_extension == "zip" or file_extension == "mpackage" )
+    local proper_extension = file_extension and
+      (file_extension == "xml" or file_extension == "zip" or file_extension == "mpackage")
     assert_error(proper_extension, self.i18n("err_invalid_file_extension"))
-    
+
     -- validate the content is proper for the extension claimed
-    if file_extension == "mpackage" or file_extensions == "zip" then
+    if file_extension == "mpackage" or file_extension == "zip" then
       assert_error(string.find(fcontent, zipheader) == 1, self.i18n("err_invalid_mpackage"))
     elseif file_extension == "xml" then
       assert_error(string.find(fcontent, mudlet_xml_header), self.i18n("err_invalid_mudlet_xml"))

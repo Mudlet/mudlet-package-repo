@@ -6,7 +6,6 @@ local mail = require("controllers.mail")
 return {
   GET = capture_errors(function(self)
     local name = self.session.name
-    --if name then return name end
     local user,err = Users:get_user(name)
     assert_error(user,err)
     mail:send_verification(user,self.i18n)

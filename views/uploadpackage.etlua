@@ -3,7 +3,7 @@
     <label for="choosePackageFile">
       <%= i18n("upload_button_header") %>
     </label>
-    <input class="form-control" class="btn btn-light" type="button" id="choosePackageFile" value="<%= i18n('choose_file') %>" onclick="document.getElementById('file').click();" />
+    <input class="form-control btn btn-light" type="button" id="choosePackageFile" value="<%= i18n('choose_file') %>" onclick="document.getElementById('file').click();" />
     <input type="file" name="file" id="file" accept=".mpackage,.xml,.zip" style="display:none;" />
   </div>
   <div class="form-group">

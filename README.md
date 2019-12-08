@@ -14,19 +14,19 @@ The eventual aim is to have it available as a docker container which can read a 
 
 # Getting Started with Development
 
-* Install OpenResty
-* Install luarocks
-* luarocks install lapis
-* luarocks install luacrypto
-* luarocks install bcrypt
-* luarocks install i18n
-* luarocks install lua-resty-mail
+* Install [OpenResty](https://openresty.org/en/installation.html)
+* Install [Luarocks](https://github.com/luarocks/luarocks/wiki/Download)
+* `luarocks install lapis`
+* `luarocks install luacrypto`
+* `luarocks install bcrypt`
+* `luarocks install i18n`
+* `luarocks install lua-resty-mail`
 
-* Install and configure postgresql. Create mudletrepo user, password, and database in plsql ([instructions](https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e)). Check the development config in config.lua for defaults currently in use during development.
+* Install and configure [PostgreSQL](https://www.postgresql.org/download/). Create `mudletrepo` user, password, and database in plsql ([instructions](https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e)). Check the development config in [config.lua](config.lua) for defaults currently in use during development.
 
 * run `lapis migrate` to perform the migrations on the database and get it setup
 
-To start the server run `lapis server` and visit http://localhost:8080 to see the page. 
+Finally, start the server with run `lapis server` and visit http://localhost:8080 to see the page!
 
 The code cache is currently turned off, so refreshing the page will show any changes to the code immediately. 
 

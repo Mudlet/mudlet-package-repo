@@ -43,6 +43,6 @@ app:match("account", "/account", respond_to(account))
 app:match("register", "/register", respond_to(register))
 app:match("uploadpackage", "/uploadpackage", respond_to(uploadpackage))
 app:match("verifyemail", "/verifyemail", respond_to(verify_email))
-app:get("resendverification", "/resendverification", respond_to(resend_verification))
+app:match("resendverification", "/resendverification", respond_to(resend_verification))
 
 return app

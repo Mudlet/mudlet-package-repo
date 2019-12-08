@@ -52,6 +52,8 @@ return {
     verify_email_nav = "Verify email",
     verification_code = "Verification code",
     verification_mismatch = "Email and verification code do not match, please check them and try again",
-    verification_success = "Thank you for verifying your email address. You may now upload packages"
+    verification_success = "Thank you for verifying your email address. You may now upload packages",
+    resend_verification_nav = "Resend Email Verification",
+    resend_verification_success = "Verification email resent successfully"
   }
 }

@@ -8,6 +8,9 @@ return {
       local user = Users:get_user_by_email(self.params.email)
       assert_error(self.params.ver_code == user.email_ver_code, self.i18n("verification_mismatch"))
       assert_error(user:update({email_verified = true}))
+      if self.session.name == user.name then
+        self.session.verified = user.email_verified
+      end
       return self.i18n("verification_success")
     else
       return { render = true }
@@ -21,6 +24,9 @@ return {
     local user = Users:get_user_by_email(self.params.email)
     assert_error(self.params.ver_code == user.email_ver_code, self.i18n("verification_mismatch"))
     assert_error(user:update({email_verified = true}))
+    if self.session.name == user.name then
+      self.session.verified = user.email_verified
+    end
     return self.i18n("verification_success")
   end)
 }

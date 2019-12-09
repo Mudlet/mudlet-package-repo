@@ -13,6 +13,7 @@ local uploadpackage = require("controllers.uploadpackage")
 local account = require("controllers.account")
 local verify_email = require("controllers.verifyemail")
 local app_helpers = require("lapis.application")
+local resend_verification = require("controllers.resendverification")
 local capture_errors, assert_error = app_helpers.capture_errors, app_helpers.assert_error
 
 
@@ -42,5 +43,6 @@ app:match("account", "/account", respond_to(account))
 app:match("register", "/register", respond_to(register))
 app:match("uploadpackage", "/uploadpackage", respond_to(uploadpackage))
 app:match("verifyemail", "/verifyemail", respond_to(verify_email))
+app:match("resendverification", "/resendverification", respond_to(resend_verification))
 
 return app

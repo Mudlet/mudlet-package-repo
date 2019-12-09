@@ -31,12 +31,15 @@
           <ul>
             <li><a href="<%= url_for("index") %>"><%= i18n("index_nav") %></a></li>
             <% if session.name then %>
-            <li><a href="<%= url_for("logout") %>"><%= i18n("logout_nav") %></a></li>
+              <li><a href="<%= url_for("logout") %>"><%= i18n("logout_nav") %></a></li>
+              <li><a href="<%= url_for("account") %>"><%= i18n("account_nav") %></a></li>
+              <% if not session.verified then %>
+                <li><a href="<%= url_for("resendverification") %>"><%= i18n("resend_verification_nav") %></a></li>
+              <% end %>
             <% else %>
-            <li><a href="<%= url_for("login") %>"><%= i18n("login_nav") %></a></li>
-            <li><a href="<%= url_for("register") %>"><%= i18n("register_nav") %></a></li>
+              <li><a href="<%= url_for("login") %>"><%= i18n("login_nav") %></a></li>
+              <li><a href="<%= url_for("register") %>"><%= i18n("register_nav") %></a></li>
             <% end %>
-            <li><a href="<%= url_for("account") %>"><%= i18n("account_nav") %></a></li>
             <li><a href="<%= url_for("packages") %>"><%= i18n("packages_nav") %></a></li>
             <li><a href="<%= url_for("uploadpackage") %>"><%= i18n("upload_nav") %></a></li>
           </ul>

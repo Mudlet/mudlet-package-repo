@@ -107,7 +107,7 @@ return {
 
     -- save the file to disk. function defined above.
     save_file(self)
-    local url = string.format(self.config.base_url .. "data/%s/%s/%s/%s", self.session.name, self.params.name, self.params.version, filename)
+    local url = string.format("%sdata/%s/%s/%s/%s", self.config.base_url, self.session.name, self.params.name, self.params.version, filename)
     local user = Users:get_user(self.session.name)
     local package, err = Packages:create({
       name = self.params.name,

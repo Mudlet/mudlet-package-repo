@@ -107,7 +107,7 @@ return {
 
     -- save the file to disk. function defined above.
     save_file(self)
-    local url = string.format("data/%s/%s/%s/%s", self.session.name, self.params.name, self.params.version, filename)
+    local url = string.format("%sdata/%s/%s/%s/%s", self.config.base_url, self.session.name, self.params.name, self.params.version, filename)
     local user = Users:get_user(self.session.name)
     local package, err = Packages:create({
       name = self.params.name,
@@ -120,6 +120,6 @@ return {
       extension = file_extension
     })
     assert_error(package, err)
-    return self.i18n("upload_success", {self.config.base_url .. url})
+    return self.i18n("upload_success", {url})
   end)
 }

@@ -42,6 +42,7 @@
             <% end %>
             <li><a href="<%= url_for("packages") %>"><%= i18n("packages_nav") %></a></li>
             <li><a href="<%= url_for("uploadpackage") %>"><%= i18n("upload_nav") %></a></li>
+            <li><a href="<%= url_for("changepackage") %>"><%= "Modify Package" %></a></li>
           </ul>
         </div>
       </nav>

@@ -1,7 +1,7 @@
 # Mudlet Package Repo
 This server will power the Mudlet package repository and server as a reference implementation for any other person or organization which may want to host their own repository for Mudlet packages. 
 
-It is implemented using lapis, which is a lua web framework that runs inside of OpenResty (https://openresty.org/en/), a custom implementation of NginX. We makes use of the follow luarocks:
+It is implemented using lapis, which is a lua web framework that runs inside of OpenResty (https://openresty.org/en/), a custom implementation of NginX. We make use of the follow luarocks:
 
 * lapis https://github.com/leafo/lapis
 * luacrypto https://github.com/luaforge/luacrypto

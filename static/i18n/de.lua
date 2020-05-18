@@ -26,7 +26,7 @@ return {
     email_address = "Emailaddresse",
     email_address_wontshare = "Wir werden deine Emailadresse niemals irgendjemandem mitteilen.",
     administrator = "Administrator",
-    user_created = "Benutzer erstellt",
+    user_created = "Thanks for registering! Please check your email address to verify your account.",
     error_header = "FEHLER",
     navigation_title = "Navigationslinks",
     upload_button_header = "Wähle ein Paket zum hochladen",

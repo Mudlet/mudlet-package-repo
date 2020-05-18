@@ -32,7 +32,7 @@ return {
     upload_button_header = "Выберите пакет для загрузки",
     upload_package = "Загрузить пакет",
     upload_success = "Пакет %s загружен успешно",
-    user_created = "Пользователь создан",
+    user_created = "Thanks for registering! Please check your email address to verify your account.",
     username = "имя пользователя",
     verification_code = "проверочный код",
     verification_mismatch = "Электронная почта и проверочный код не совпадают, пожалуйста, проверьте их и повторите попытку.",

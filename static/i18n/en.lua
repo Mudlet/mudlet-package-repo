@@ -1,8 +1,8 @@
 return {
   en = {
     upload_success = "Package %s uploaded successfully",
-    change_success = "Package %s modified succesfully",
-    delete_success = "Package %s deleted succesfully",
+    change_success = "Package %s modified successfully",
+    delete_success = "Package %s deleted successfully",
     change_password = "Change password",
     greeting = "Hello there, %s",
     login_nav = "Login",

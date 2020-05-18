@@ -125,10 +125,11 @@ return {
         url = new_url or url,
       })
       assert_error(package, err)
-      return self.i18n("upload_success", {string.len(self.params.file.filename)})
+      return self.i18n("change_success", {self.params.name})
     else 
       local package, err = findPackage:delete()
       assert_error(package, err)
+      return self.i18n("delete_success", {self.params.name})
     end
   end)
 }

@@ -1,6 +1,8 @@
 return {
   en = {
     upload_success = "Package %s uploaded successfully",
+    change_success = "Package %s modified succesfully",
+    delete_success = "Package %s deleted succesfully",
     change_password = "Change password",
     greeting = "Hello there, %s",
     login_nav = "Login",
@@ -30,8 +32,13 @@ return {
     error_header = "ERROR",
     navigation_title = "Navigation links",
     upload_button_header = "Select package to upload",
+    update_button_header = "Update your package file",
+    change_button_header = "Select your package",
     choose_file = "Choose Package File",
+    choose_package = "Choose Package to modify",
     upload_package = "Upload Package",
+    change_package = "Modifiy Package",
+    delete_package = "Delete Package",
     package_name = "Package name",
     package_version = "Version",
     package_description = "Description",

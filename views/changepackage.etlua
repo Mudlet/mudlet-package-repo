@@ -1,10 +1,10 @@
 <form action="<%= burl('changepackage') %>" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="choosePackage">
-      <%= i18n("upload_button_header") %>
+      <%= i18n("change_button_header") %>
     </label>
     <div class="form-drop">
-    <input class="form-control btn btn-light" type="button" id="choosePackage" value="<%= i18n('choose_file') %>" onclick="document.getElementById('myDropdown').classList.toggle('show');" />
+    <input class="form-control btn btn-light" type="button" id="choosePackage" value="<%= i18n('choose_package') %>" onclick="document.getElementById('myDropdown').classList.toggle('show');" />
     <div id="myDropdown" class="form-dropdown">
       <% myPackages = myPackages or {} %>
       <% for k, v in pairs(myPackages) do %>
@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <label for="choosePackageFile">
-      <%= i18n("upload_button_header") %>
+      <%= i18n("update_button_header") %>
     </label>
     <input class="form-control btn btn-light" type="button" id="choosePackageFile" value="<%= i18n('choose_file') %>" onclick="document.getElementById('file').click();" />
     <input type="file" name="file" id="file" accept=".mpackage,.xml,.zip" style="display:none;" />
@@ -46,8 +46,8 @@
       <%= i18n("package_dependencies") %></label>
     <input class="form-control" type="text" name="dependencies" id="dependencies">
   </div>
-  <input class="btn btn-primary" type="submit" value="<%= i18n('upload_package') %>" name="change">
-  <input class="btn btn-danger" type="submit" value="Delete Package" name="delete">
+  <input class="btn btn-primary" type="submit" value="<%= i18n('change_package') %>" name="change">
+  <input class="btn btn-danger" type="submit" value="<%= i18n('delete_package') %>" name="delete">
 
 </form>
 <script>

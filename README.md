@@ -4,7 +4,6 @@ This server will power the Mudlet package repository and server as a reference i
 It is implemented using lapis, which is a lua web framework that runs inside of OpenResty (https://openresty.org/en/), a custom implementation of NginX. We make use of the follow luarocks:
 
 * lapis https://github.com/leafo/lapis
-* luacrypto https://github.com/luaforge/luacrypto
 * bcrypt http://github.com/mikejsavage/lua-bcrypt
 * i18n https://github.com/kikito/i18n.lua
 * lua-resty-mail https://github.com/GUI/lua-resty-mail
@@ -18,7 +17,6 @@ The eventual aim is to have it available as a docker container which can read a 
 * Install [Luarocks](https://github.com/luarocks/luarocks/wiki/Download)
 * `sudo apt install libssl-dev` (on Ubuntu)
 * `luarocks install lapis`
-* `luarocks install luacrypto`
 * `luarocks install bcrypt`
 * `luarocks install i18n`
 * `luarocks install lua-resty-mail`

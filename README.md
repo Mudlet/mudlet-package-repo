@@ -26,7 +26,7 @@ The eventual aim is to have it available as a docker container which can read a 
 
 * run `lapis migrate` to perform the migrations on the database and get it setup
 
-* Setup SMTP on localhost at port 1025. demonnic suggests the use of [fakeSMTP](http://nilhcem.com/FakeSMTP/) for this as it saves the email as a .eml file and you can open it in your email client of choice.
+* Setup SMTP on localhost at port 1025. You can use [fakeSMTP](http://nilhcem.com/FakeSMTP/) for this as it saves the email as a .eml file and you can open it in your email client of choice - run it with `java -jar fakeSMTP-2.0.jar -p 1025 -o /tmp`.
 
 Finally, start the server with run `lapis server` and visit http://localhost:8080 to see the page!
 

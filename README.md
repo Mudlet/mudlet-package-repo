@@ -16,6 +16,7 @@ The eventual aim is to have it available as a docker container which can read a 
 
 * Install [OpenResty](https://openresty.org/en/installation.html)
 * Install [Luarocks](https://github.com/luarocks/luarocks/wiki/Download)
+* `sudo apt install libssl-dev` (on Ubuntu)
 * `luarocks install lapis`
 * `luarocks install luacrypto`
 * `luarocks install bcrypt`

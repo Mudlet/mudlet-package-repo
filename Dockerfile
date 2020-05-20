@@ -1,14 +1,25 @@
-# alpine can't work due to https://github.com/mikejsavage/lua-bcrypt/issues/11
-FROM mileschou/lapis:latest
+FROM mileschou/lapis:alpine
 
-RUN apt-get update -y && \
-  apt-get install unzip build-essential wget -y --no-install-recommends
+RUN set -xe && \
+        # Install build deps
+        apk add --no-cache --virtual .build-deps \
+            gcc \
+            g++ \
+            git \
+            make \
+            openssl-dev \
+            pcre-dev \
+            perl \
+            zlib-dev \
+            linux-headers
 
 RUN set -xe && \
   # Install build deps
   docker-luarocks-install --verbose bcrypt && \
   docker-luarocks-install --verbose i18n && \
   docker-luarocks-install --verbose lua-resty-mail
+
+RUN apk del .build-deps
 
 # Set the working directory.
 WORKDIR /usr/src/app

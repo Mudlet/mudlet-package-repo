@@ -11,6 +11,7 @@ local Users = Model:extend("users", {
 })
 
 local function uuid()
+  math.randomseed(os.clock()*1000000)
   local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
   return string.gsub(template, '[xy]', function (c)
     local v = (c == 'x') and math.random(0, 0xf) or math.random(8, 0xb)

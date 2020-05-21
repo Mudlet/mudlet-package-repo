@@ -35,6 +35,11 @@ app:get("index", "/", capture_errors(function(self)
   return self.i18n("greeting", {name})
 end))
 
+app:get("packages", "/api/packages", capture_errors(function()
+  local packages = db.select("* from packages")
+  return { json = packages}
+end))
+
 app:get("packages", "/packages", respond_to(packages))
 
 app:match("login", "/login", respond_to(login))

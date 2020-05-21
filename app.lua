@@ -15,7 +15,7 @@ local verify_email = require("controllers.verifyemail")
 local app_helpers = require("lapis.application")
 local resend_verification = require("controllers.resendverification")
 local capture_errors, assert_error = app_helpers.capture_errors, app_helpers.assert_error
-
+math.randomseed(os.clock()*1000000)
 
 app:enable("etlua")
 app.layout = require('views.layout')

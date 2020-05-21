@@ -9,7 +9,6 @@ local Users = Model:extend("users", {
     {"packages", has_many = "Packages"}
   }
 })
-math.randomseed(os.clock()*1000000)
 
 
 local function uuid()

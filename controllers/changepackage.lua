@@ -74,9 +74,9 @@ return {
     assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     local user = Users:get_user(self.session.name)
     if not user.admin then
-      self.myPackages = Packages:select("* where user_id = "..user.id)
+      self.myPackages = Packages:get_user_packages(user.id)
     else
-      self.myPackages = Packages:select("*")
+      self.myPackages = Packages:get_packages()
     end
     return { render = "changepackage" }
   end),
@@ -86,9 +86,9 @@ return {
     assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     local user = Users:get_user(self.session.name)
     if not user.admin then
-      self.myPackages = Packages:select("* where user_id = "..user.id)
+      self.myPackages = Packages:get_user_packages(user.id)
     else
-      self.myPackages = Packages:select("*")
+      self.myPackages = Packages:get_packages()
     end
 
     -- must provide a file, a name, and a version
@@ -122,7 +122,7 @@ return {
       save_file(self)
     end
     local new_url = filename and string.format("%sdata/%s/%s/%s/%s", self.config.base_url, self.session.name, self.params.name, self.params.version, filename)
-    local findPackage = Packages:find({name = self.params.name})
+    local findPackage = Packages:find_user_package(self.params.name, user.id, user.admin)
     if not(self.params.delete) then
       local package, err = findPackage:update({
         version = self.params.version,

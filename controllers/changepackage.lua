@@ -73,7 +73,11 @@ return {
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
     assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     local user = Users:get_user(self.session.name)
-    self.myPackages = Packages:select("* where user_id = "..user.id)
+    if not user.admin then
+      self.myPackages = Packages:select("* where user_id = "..user.id)
+    else
+      self.myPackages = Packages:select("*")
+    end
     return { render = "changepackage" }
   end),
   POST = capture_errors(function(self)
@@ -81,7 +85,11 @@ return {
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
     assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     local user = Users:get_user(self.session.name)
-    self.myPackages = Packages:select("* where user_id = "..user.id)
+    if not user.admin then
+      self.myPackages = Packages:select("* where user_id = "..user.id)
+    else
+      self.myPackages = Packages:select("*")
+    end
 
     -- must provide a file, a name, and a version
     validate.assert_valid(self.params, {
@@ -114,14 +122,13 @@ return {
       save_file(self)
     end
     local new_url = filename and string.format("%sdata/%s/%s/%s/%s", self.config.base_url, self.session.name, self.params.name, self.params.version, filename)
-    local findPackage = Packages:find({name = self.params.name, user_id = user.id})
+    local findPackage = Packages:find({name = self.params.name})
     if not(self.params.delete) then
       local package, err = findPackage:update({
         version = self.params.version,
         description = self.params.description or "",
         game = self.params.game or "",
         dependencies = self.params.dependencies or "",
-        user_id = user.id,
         url = new_url or url,
       })
       assert_error(package, err)

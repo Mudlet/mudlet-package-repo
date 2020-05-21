@@ -46,6 +46,7 @@ return {
     package_dependencies = "Dependencies. Package names as comma separated values",
     upload_nav = "Upload Package",
     account_nav = "Account",
+    change_package_nav = "Modify Package",
     err_not_logged_in = "You must log in first",
     err_file_access = "Could not access file",
     err_save_file = "Could not save file",

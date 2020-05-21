@@ -89,7 +89,7 @@ return {
     local fcontent = self.params.file.content
     local zipheader = "PK"
     local mudlet_xml_header = "<!DOCTYPE MudletPackage>"
-    local file_extension = self.split_string(fname, "%.")[2]
+    local file_extension = string.match(fname, ".+%.(.+)")
     local filename = string.format("%s-%s.%s", self.params.name, self.params.version, file_extension)
 
 

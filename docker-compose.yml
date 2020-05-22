@@ -5,8 +5,6 @@ services:
   # PostgreSQL database server
   psql:
     image: postgres
-    ports:
-      - 5432:5432
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_DB: mudletrepo
@@ -29,7 +27,7 @@ services:
       - ./web:/var/www
       - ./data:/var/data
     ports:
-      - 8081:8080
+      - 8080:8080
     restart: unless-stopped
 
 volumes:

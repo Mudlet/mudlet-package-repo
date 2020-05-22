@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /usr/local/bin/kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: package-repo
+  name: package-repo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: package-repo
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /usr/local/bin/kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: package-repo
+    spec:
+      containers:
+      - env:
+        - name: LAPIS_POSTGRES_HOST
+          value: psql
+        image: mudlet/mudlet-package-repo:latest
+        imagePullPolicy: ""
+        name: package-repo
+        ports:
+        - containerPort: 8080
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/www
+          name: package-repo-claim0
+        - mountPath: /var/data
+          name: package-repo-claim1
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes:
+      - name: package-repo-claim0
+        persistentVolumeClaim:
+          claimName: package-repo-claim0
+      - name: package-repo-claim1
+        persistentVolumeClaim:
+          claimName: package-repo-claim1
+status: {}

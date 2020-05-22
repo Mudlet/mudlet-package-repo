@@ -1,6 +1,6 @@
 --config.lua
 local config = require("lapis.config")
-config({'development'}, {
+config({'development', 'docker'}, {
   postgres = {
     database = "mudletrepo",
     user = "mudletrepo",
@@ -18,4 +18,16 @@ config({'development'}, {
   admin_password = "supersecretadminpass", -- this can be removed once you've viewed the page for the first time
   base_url = "http://localhost:8080/",
   website_name = "Mudlet Package Repository (experimental)"
+})
+
+config({'development', {
+  resolver_address = '8.8.8.8',
+}})
+
+config({'docker'}, {
+  -- need to use docker resolver inside docker
+  resolver_address = '127.0.0.11',
+  postgres = {
+    host = "psql"
+  }
 })

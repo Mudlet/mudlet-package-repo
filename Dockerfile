@@ -26,4 +26,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "lapis", "server" ]
+CMD lapis migrate docker && lapis server docker

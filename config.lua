@@ -20,10 +20,12 @@ config({'development', 'docker'}, {
   website_name = "Mudlet Package Repository (experimental)"
 })
 
+-- development is localhost or kubernetes
 config({'development', {
   resolver_address = '8.8.8.8',
 }})
 
+-- docker is for docker only
 config({'docker'}, {
   -- need to use docker resolver inside docker
   resolver_address = '127.0.0.11',

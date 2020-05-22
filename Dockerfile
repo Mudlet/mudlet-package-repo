@@ -26,4 +26,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD lapis migrate docker --trace && lapis server docker
+CMD lapis migrate development --trace && lapis server development

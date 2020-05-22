@@ -29,7 +29,7 @@ spec:
         - name: LAPIS_POSTGRES_HOST
           value: psql
         image: mudlet/mudlet-package-repo:add-kubernetes
-        imagePullPolicy: ""
+        imagePullPolicy: "Always"
         name: package-repo
         ports:
         - containerPort: 8080

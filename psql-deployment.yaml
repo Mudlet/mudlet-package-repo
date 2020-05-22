@@ -39,6 +39,8 @@ spec:
         image: postgres
         imagePullPolicy: "IfNotPresent"
         name: psql
+        ports:
+        - containerPort: 5432
         resources: {}
         volumeMounts:
         - mountPath: /var/lib/postgresql/data

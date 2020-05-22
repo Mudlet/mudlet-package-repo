@@ -33,6 +33,7 @@ config({'docker'}, {
 })
 
 config({'kubernetes'}, {
+  resolver_address = '8.8.8.8',
   postgres = {
     host = "psql"
   }

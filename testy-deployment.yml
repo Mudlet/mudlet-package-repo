@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: package-repo
+  name: package-repo-deployment
+  labels:
+    app: package-repo
 spec:
   replicas: 1
   selector:
@@ -17,4 +19,4 @@ spec:
         image: mudlet/mudlet-package-repo:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080

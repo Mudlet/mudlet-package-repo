@@ -35,6 +35,6 @@ config({'docker'}, {
 config({'kubernetes'}, {
   resolver_address = '8.8.8.8',
   postgres = {
-    host = "psql.default.svc.cluster.local"
+    host = "10.128.61.7"
   }
 })

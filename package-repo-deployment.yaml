@@ -28,7 +28,7 @@ spec:
       - env:
         - name: LAPIS_POSTGRES_HOST
           value: psql
-        image: mudlet/mudlet-package-repo:latest
+        image: mudlet/mudlet-package-repo:add-kubernetes
         imagePullPolicy: ""
         name: package-repo
         ports:

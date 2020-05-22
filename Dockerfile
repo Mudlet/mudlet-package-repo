@@ -26,4 +26,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD lapis migrate development --trace && lapis server development
+CMD lapis migrate kubernetes --trace && lapis server kubernetes

@@ -1,6 +1,6 @@
 --config.lua
 local config = require("lapis.config")
-config({'development', 'docker'}, {
+config({'development', 'docker', 'kubernetes'}, {
   postgres = {
     database = "mudletrepo",
     user = "mudletrepo",
@@ -20,15 +20,19 @@ config({'development', 'docker'}, {
   website_name = "Mudlet Package Repository (experimental)"
 })
 
--- development is localhost or kubernetes
 config({'development', {
   resolver_address = '8.8.8.8',
 }})
 
--- docker is for docker only
 config({'docker'}, {
   -- need to use docker resolver inside docker
   resolver_address = '127.0.0.11',
+  postgres = {
+    host = "psql"
+  }
+})
+
+config({'kubernetes'}, {
   postgres = {
     host = "psql"
   }

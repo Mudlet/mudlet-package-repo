@@ -1,4 +1,7 @@
 <h1><%=i18n('register_nav') %></h1>
+<p>burl: <%= burl("register") %></p>
+<p>url_for: <%= url_for("register") %></p>
+<p>config base_url: <%= config.base_url %></p>
 <div id="content" class="admin_form">
   <form action="<%= burl("register") %>" method="post">
     <div class="form-group">

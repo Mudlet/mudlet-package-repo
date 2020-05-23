@@ -36,7 +36,7 @@ config({'kubernetes'}, {
   base_url = os.getenv("REPO_BASE_URL"),
   custom_resolver = 'resolver kube-dns.kube-system.svc.cluster.local;',
   postgres = {
-    host = "psql"
+    host = "psql.default.svc.cluster.local"
   },
   code_cache = "on",
   use_mailgun = true,

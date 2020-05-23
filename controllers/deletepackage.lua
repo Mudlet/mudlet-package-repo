@@ -8,14 +8,14 @@ local Users = require("models.users")
 return {
   GET = capture_errors(function(self)
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
-    assert_error(self.session.verified, self.i18n("err_email_not_verified"))
+    -- assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     self.myPackages = Packages:get_packages()
     return { render = "changepackage" }
   end),
   POST = capture_errors(function(self)
     -- must be logged in to upload
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
-    assert_error(self.session.verified, self.i18n("err_email_not_verified"))
+    -- assert_error(self.session.verified, self.i18n("err_email_not_verified"))
 
     -- must provide a file, a name, and a version
     validate.assert_valid(self.params, {

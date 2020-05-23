@@ -71,7 +71,7 @@ end
 return {
   GET = capture_errors(function(self)
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
-    assert_error(self.session.verified, self.i18n("err_email_not_verified"))
+    -- assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     local user = Users:get_user(self.session.name)
     if not user.admin then
       self.myPackages = Packages:get_user_packages(user.id)
@@ -83,7 +83,7 @@ return {
   POST = capture_errors(function(self)
     -- must be logged in to upload
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
-    assert_error(self.session.verified, self.i18n("err_email_not_verified"))
+    -- assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     local user = Users:get_user(self.session.name)
     if not user.admin then
       self.myPackages = Packages:get_user_packages(user.id)
@@ -110,14 +110,14 @@ return {
       local proper_extension = file_extension and
       (file_extension == "xml" or file_extension == "zip" or file_extension == "mpackage")
       assert_error(proper_extension, self.i18n("err_invalid_file_extension"))
-      
+
       -- validate the content is proper for the extension claimed
       if file_extension == "mpackage" or file_extension == "zip" then
         assert_error(string.find(fcontent, zipheader) == 1, self.i18n("err_invalid_mpackage"))
       elseif file_extension == "xml" then
         assert_error(string.find(fcontent, mudlet_xml_header), self.i18n("err_invalid_mudlet_xml"))
       end
-      
+
       -- save the file to disk. function defined above.
       save_file(self)
     end
@@ -133,7 +133,7 @@ return {
       })
       assert_error(package, err)
       return self.i18n("change_success", {self.params.name})
-    else 
+    else
       local package, err = findPackage:delete()
       assert_error(package, err)
       return self.i18n("delete_success", {self.params.name})

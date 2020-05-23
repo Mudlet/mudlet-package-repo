@@ -10,14 +10,14 @@ function mail:send(subject, body, user)
     host = self.config.smtp_host or "smtp.gmail.com",
     port = self.config.smtp_port or 25,
   })
-  assert_error(mailer, err)
+  assert_error(mailer, string.format("Couldn't connect to the email service: %s", err))
   local ok,err = mailer:send({
     from = self.config.sender_address,
     to = {string.format("%s <%s>", user.name, user.email)},
     subject = subject,
     text = body
   })
-  assert_error(ok,err)
+  assert_error(ok, string.format("Error sending an email: %s", err))
 end
 
 function mail:send_verification(user, i18n)

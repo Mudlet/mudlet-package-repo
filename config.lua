@@ -33,7 +33,9 @@ config({'docker'}, {
   postgres = {
     host = "psql"
   },
-  code_cache = "on"
+  code_cache = "on",
+  use_mailgun = true,
+  mailgun_api_key = "***REMOVED***"
 })
 
 config({'kubernetes'}, {

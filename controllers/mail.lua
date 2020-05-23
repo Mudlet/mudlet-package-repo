@@ -33,8 +33,7 @@ function mail:send(subject, body, user)
       to = string.format("%s <%s>", user.name, user.email),
       subject = subject,
       html = true,
-      body = body,
-      http = "http.compat.socket"
+      body = body
     })
   end
 end

@@ -35,7 +35,7 @@ config({'docker'}, {
 config({'kubernetes'}, {
   base_url = os.getenv("REPO_BASE_URL"),
   postgres = {
-    host = "10.128.61.7"
+    host = "psql"
   },
   code_cache = "on",
   use_mailgun = true,

@@ -49,3 +49,4 @@ config({'kubernetes'}, {
 })
 
 print(inspect(config.get()))
+print(debug.traceback())

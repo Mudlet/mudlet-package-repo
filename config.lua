@@ -34,7 +34,7 @@ config({'docker'}, {
 
 config({'kubernetes'}, {
   base_url = os.getenv("REPO_BASE_URL"),
-  custom_resolver = 'resolver kube-dns;',
+  custom_resolver = 'resolver kube-dns.kube-system;',
   postgres = {
     host = "psql"
   },

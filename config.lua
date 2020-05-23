@@ -1,9 +1,8 @@
---config.lua
+
 local config = require("lapis.config")
 local inspect = require("inspect")
 
-print("BASE URL: "..tostring(os.getenv("REPO_BASE_URL")))
-print("LAPIS_ENVIRONMENT: "..tostring(os.getenv("LAPIS_ENVIRONMENT")))
+-- any environment variables used here must also be declared in nginx.conf
 
 config({'development', 'docker', 'kubernetes'}, {
   postgres = {
@@ -49,4 +48,3 @@ config({'kubernetes'}, {
 })
 
 print(inspect(config.get()))
-print(debug.traceback())

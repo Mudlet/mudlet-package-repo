@@ -28,6 +28,9 @@ spec:
       - env:
         - name: LAPIS_POSTGRES_HOST
           value: psql
+        # to be fixed with a DNS when that is hooked up, for now has to be hardcoded
+        - name: REPO_BASE_URL
+          value: "http://45.79.247.15:8080/"
         image: mudlet/mudlet-package-repo:add-kubernetes
         imagePullPolicy: "Always"
         name: package-repo

@@ -22,13 +22,9 @@ config({'development', 'docker', 'kubernetes'}, {
   website_name = "Mudlet Package Repository (experimental)"
 })
 
-config({'development', {
-  resolver_address = '8.8.8.8',
-}})
-
 config({'docker'}, {
   -- need to use docker resolver inside docker
-  resolver_address = '127.0.0.11',
+  custom_resolver = 'resolver 127.0.0.11 ipv6=off',
   postgres = {
     host = "psql"
   },
@@ -36,7 +32,6 @@ config({'docker'}, {
 })
 
 config({'kubernetes'}, {
-  resolver_address = '8.8.8.8',
   base_url = os.getenv("REPO_BASE_URL"),
   postgres = {
     host = "10.128.61.7"

@@ -14,6 +14,8 @@ config({'development', 'docker', 'kubernetes'}, {
   smtp_host = "127.0.0.1",
   smtp_port = 1025,
   sender_address = "do-not-reply@mudlet.org",
+  use_mailgun = false,
+  mailgun_api_key = "",
   admin_email = "demonnic@gmail.com",
   admin_password = "supersecretadminpass", -- this can be removed once you've viewed the page for the first time
   base_url = "http://localhost:8080/",
@@ -39,5 +41,7 @@ config({'kubernetes'}, {
   postgres = {
     host = "10.128.61.7"
   },
-  code_cache = "on"
+  code_cache = "on",
+  use_mailgun = true,
+  mailgun_api_key = os.getenv("MAILGUN_API_KEY")
 })

@@ -6,18 +6,36 @@ local mail = {
 }
 
 function mail:send(subject, body, user)
-  local mailer, err = mail_handler.new({
-    host = self.config.smtp_host or "smtp.gmail.com",
-    port = self.config.smtp_port or 25,
-  })
-  assert_error(mailer, string.format("Couldn't connect to the email service: %s", err))
-  local ok,err = mailer:send({
-    from = self.config.sender_address,
-    to = {string.format("%s <%s>", user.name, user.email)},
-    subject = subject,
-    text = body
-  })
-  assert_error(ok, string.format("Error sending an email: %s", err))
+  if not self.config.use_mailgun then
+    local mailer, err = mail_handler.new({
+      host = self.config.smtp_host or "smtp.gmail.com",
+      port = self.config.smtp_port or 25,
+    })
+    assert_error(mailer, string.format("Couldn't connect to the email service: %s", err))
+    local ok,err = mailer:send({
+      from = self.config.sender_address,
+      to = {string.format("%s <%s>", user.name, user.email)},
+      subject = subject,
+      text = body
+    })
+    assert_error(ok, string.format("Error sending an email: %s", err))
+  else
+    assert_error(self.config.mailgun_api_key, "No mailgun API key is configured - can't send email.")
+
+    local Mailgun = require("mailgun").Mailgun
+    local m = Mailgun({
+      domain = "mudlet.org",
+      api_key = self.config.mailgun_api_key
+    })
+
+    m:send_email({
+      from = self.config.sender_address,
+      to = string.format("%s <%s>", user.name, user.email),
+      subject = subject,
+      html = true,
+      body = body
+    })
+  end
 end
 
 function mail:send_verification(user, i18n)

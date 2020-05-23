@@ -1,5 +1,7 @@
 --config.lua
 local config = require("lapis.config")
+local inspect = require("inspect")
+
 config({'development', 'docker', 'kubernetes'}, {
   postgres = {
     database = "mudletrepo",
@@ -42,3 +44,5 @@ config({'kubernetes'}, {
   use_mailgun = true,
   mailgun_api_key = os.getenv("MAILGUN_API_KEY")
 })
+
+print(inspect(config.get()))

@@ -16,7 +16,8 @@ RUN set -xe && \
   docker-luarocks-install bcrypt && \
   docker-luarocks-install i18n && \
   docker-luarocks-install lua-resty-mail && \
-  docker-luarocks-install mailgun
+  docker-luarocks-install mailgun && \
+  docker-luarocks-install inspect
 
 RUN apk del .build-deps
 
@@ -27,4 +28,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD lapis migrate kubernetes && lapis server kubernetes
+CMD lapis migrate $LAPIS_ENVIRONMENT && lapis server $LAPIS_ENVIRONMENT

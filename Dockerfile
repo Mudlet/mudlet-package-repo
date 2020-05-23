@@ -15,7 +15,8 @@ RUN set -xe && \
 RUN set -xe && \
   docker-luarocks-install --verbose bcrypt && \
   docker-luarocks-install --verbose i18n && \
-  docker-luarocks-install --verbose lua-resty-mail
+  docker-luarocks-install --verbose lua-resty-mail && \
+  docker-luarocks-install --verbose mailgun
 
 RUN apk del .build-deps
 

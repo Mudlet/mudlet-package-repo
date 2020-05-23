@@ -7,6 +7,7 @@ config({'development', 'docker', 'kubernetes'}, {
     password = "pleasechangeme"
   },
   secret = "pleasechangeme",
+  custom_resolver = "",
   salt = "12",
   body_size = "20m",
   num_workers = 2,
@@ -24,7 +25,7 @@ config({'development', 'docker', 'kubernetes'}, {
 
 config({'docker'}, {
   -- need to use docker resolver inside docker
-  custom_resolver = 'resolver 127.0.0.11 ipv6=off',
+  custom_resolver = 'resolver 127.0.0.11 ipv6=off;',
   postgres = {
     host = "psql"
   },

@@ -47,4 +47,3 @@ config({'kubernetes'}, {
   mailgun_api_key = os.getenv("MAILGUN_API_KEY")
 })
 
-print(inspect(config.get()))

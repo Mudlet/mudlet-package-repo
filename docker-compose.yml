@@ -25,7 +25,7 @@ services:
     depends_on:
       - psql
     environment:
-      LAPIS_POSTGRES_HOST: psql
+      LAPIS_ENVIRONMENT: docker
     volumes:
       - ./web:/var/www
       - ./data:/var/data

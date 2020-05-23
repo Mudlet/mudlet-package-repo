@@ -29,7 +29,8 @@ config({'docker'}, {
   resolver_address = '127.0.0.11',
   postgres = {
     host = "psql"
-  }
+  },
+  code_cache = "on"
 })
 
 config({'kubernetes'}, {
@@ -38,5 +39,6 @@ config({'kubernetes'}, {
   base_url = "http://45.79.247.15:8080/",
   postgres = {
     host = "10.128.61.7"
-  }
+  },
+  code_cache = "on"
 })

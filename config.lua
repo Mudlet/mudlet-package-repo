@@ -34,6 +34,8 @@ config({'docker'}, {
 
 config({'kubernetes'}, {
   resolver_address = '8.8.8.8',
+  -- to be fixed with a DNS when that is hooked up, for now has to be hardcoded
+  base_url = "http://45.79.247.15:8080/",
   postgres = {
     host = "10.128.61.7"
   }

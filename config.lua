@@ -35,7 +35,7 @@ config({'docker'}, {
   },
   code_cache = "on",
   use_mailgun = true,
-  mailgun_api_key = "***REMOVED***"
+  mailgun_api_key = os.getenv("MAILGUN_API_KEY")
 })
 
 config({'kubernetes'}, {

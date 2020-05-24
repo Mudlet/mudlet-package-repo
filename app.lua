@@ -30,17 +30,12 @@ app:before_filter(config_before)
 app:before_filter(check_auth)
 
 -- base route
-app:get("index", "/", capture_errors(function(self)
-  local name = self.session.name or "unknown"
-  return self.i18n("greeting", {name})
-end))
+app:get("index", "/", capture_errors(respond_to(packages)))
 
-app:get("packages", "/api/packages", capture_errors(function()
+app:get("packages", "/packages", capture_errors(function()
   local packages = db.select("* from packages")
   return { json = packages}
 end))
-
-app:get("packages", "/packages", respond_to(packages))
 
 app:match("login", "/login", respond_to(login))
 app:match("logout", "/logout", logout)

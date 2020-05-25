@@ -29,7 +29,7 @@ By choosing Docker you don't have to worry about installing and configuring the 
 * `luarocks install lapis`
 * `luarocks install bcrypt`
 * `luarocks install i18n`
-* `luarocks install lua-mailgun`
+* `luarocks install mailgun`
 * `luarocks install lua-resty-mail`
 
 * Install and configure [PostgreSQL](https://www.postgresql.org/download/). Create `mudletrepo` user, password, and database in plsql ([instructions](https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e)). Check the development config in [config.lua](config.lua) for defaults currently in use during development.

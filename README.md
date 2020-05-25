@@ -20,6 +20,13 @@ By choosing Docker you don't have to worry about installing and configuring the 
 
 * Install [Docker](https://docs.docker.com/engine/install/)
 * Install [docker-compose](https://docs.docker.com/compose/install/)
+* Setup SMTP on localhost at port 1025. You can use [fakeSMTP](http://nilhcem.com/FakeSMTP/) for this as it saves the email as a .eml file and you can open it in your email client of choice - run it with `java -jar fakeSMTP-2.0.jar -p 1025 -o /tmp`.
+* Run `docker-compose build` to build the image.
+* Run `docker-compose up` to run the website.
+
+To refresh the website, rebuild and re-run it again.
+
+To delete all data and restart from scratch, `docker-compose rm` and `docker volume rm mudlet-package-repo_postgres`.
 
 ## Via local development
 

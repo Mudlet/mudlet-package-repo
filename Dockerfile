@@ -28,4 +28,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD mkdir data && lapis migrate $LAPIS_ENVIRONMENT && lapis server $LAPIS_ENVIRONMENT
+CMD lapis migrate $LAPIS_ENVIRONMENT && lapis server $LAPIS_ENVIRONMENT

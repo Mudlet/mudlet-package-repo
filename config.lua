@@ -15,8 +15,9 @@ config({'development', 'docker'}, {
   data_dir = "data",
   smtp_host = "127.0.0.1",
   smtp_port = 1025,
+  smtp_username = nil,
+  smtp_password = nil,
   sender_address = "do-not-reply@mudlet.org",
-  use_mailgun = false,
   mailgun_api_key = "",
   admin_email = "demonnic@gmail.com",
   admin_password = "supersecretadminpass", -- this can be removed once you've viewed the page for the first time
@@ -31,6 +32,8 @@ config({'docker'}, {
     host = "psql"
   },
   code_cache = "on",
-  use_mailgun = false,
-  mailgun_api_key = os.getenv("MAILGUN_API_KEY")
+  smtp_host = os.getenv("SMTP_HOST"),
+  smtp_port = os.getenv("SMTP_PORT"),
+  smtp_username = os.getenv("SMTP_USERNAME"),
+  smtp_password = os.getenv("SMTP_PASSWORD")
 })

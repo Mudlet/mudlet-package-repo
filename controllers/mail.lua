@@ -9,7 +9,10 @@ function mail:send(subject, body, user)
   local mailer, err = mail_handler.new({
     host = self.config.smtp_host or "smtp.gmail.com",
     port = self.config.smtp_port or 25,
+    username = self.config.smtp_username,
+    password = self.config.smtp_password,
   })
+  print(inspect(mailer))
   assert_error(mailer, err)
   local ok,err = mailer:send({
     from = self.config.sender_address,

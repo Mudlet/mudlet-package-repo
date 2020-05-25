@@ -35,7 +35,7 @@ end
 local function save_file(self)
   -- record our current directory so we can change back to it
   local cwd = lfs.currentdir()
-  local file_extension = self.split_string(self.params.file.filename, "%.")[2]
+  local file_extension = string.match(self.params.file.filename, ".+%.(.+)")
 
   -- start in the data directory
   assert_error(lfs.chdir(self.config.data_dir))

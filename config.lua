@@ -8,6 +8,7 @@ config({'development', 'docker'}, {
   },
   secret = "pleasechangeme",
   custom_resolver = "",
+  session_name = "mudlet-package-repo-session",
   salt = "12",
   body_size = "20m",
   num_workers = 2,

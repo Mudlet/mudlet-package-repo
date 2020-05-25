@@ -7,7 +7,7 @@ config({'development'}, {
     password = "pleasechangeme"
   },
   secret = "pleasechangeme",
-  session_name = "mudlet-package-repo-session"
+  session_name = "mudlet-package-repo-session",
   salt = "12",
   body_size = "20m",
   num_workers = 2,

@@ -1,5 +1,5 @@
 -- any environment variables used here must also be declared in nginx.conf
-
+local config = require("lapis.config")
 config({'development', 'docker'}, {
   postgres = {
     database = "mudletrepo",

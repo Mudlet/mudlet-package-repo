@@ -4,7 +4,6 @@ local capture_errors, assert_error = app_helpers.capture_errors, app_helpers.ass
 local lfs = require('lfs')
 local Packages = require("models.packages")
 local Users = require("models.users")
-inspect = require("inspect")
 
 return {
   GET = capture_errors(function(self)

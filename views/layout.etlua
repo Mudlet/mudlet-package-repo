@@ -5,10 +5,10 @@
     <link rel="icon" href="static/images/mudlet_32px.png" sizes="32x32" />
     <link rel="icon" href="static/images/mudlet_192px.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="static/images/mudlet_180px.png" />
-    <link rel="stylesheet" href="static/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="static/jquery/jquery-3.3.1.slim.min.js"></script>
-    <script src="static/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="static/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="static/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="static/jquery/jquery-3.5.1.slim.min.js"></script>
+    <script src="static/popper.js/core@2.4.0/dist/umd/popper.min.js"></script>
+    <script src="static/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <% render("views.stylesheet") %>
     <title><%= page_title or config.website_name %></title>
   </head>

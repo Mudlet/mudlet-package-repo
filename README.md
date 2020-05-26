@@ -20,7 +20,13 @@ By choosing Docker you don't have to worry about installing and configuring the 
 
 * Install [Docker](https://docs.docker.com/engine/install/)
 * Install [docker-compose](https://docs.docker.com/compose/install/)
-* Setup SMTP on localhost at port 1025. You can use [fakeSMTP](http://nilhcem.com/FakeSMTP/) for this as it saves the email as a .eml file and you can open it in your email client of choice - run it with `java -jar fakeSMTP-2.0.jar -p 1025 -o /tmp`.
+* Setup a Mailgun account and save the credentials as environment variables, for example:
+```bash
+export SMTP_HOST="smtp.mailgun.org"
+export SMTP_PORT="587"
+export SMTP_USERNAME="postmaster@..."
+export SMTP_PASSWORD="..."
+```
 * Run `docker-compose build` to build the image.
 * Run `docker-compose up` to run the website.
 
@@ -36,7 +42,6 @@ To delete all data and restart from scratch, `docker-compose rm` and `docker vol
 * `luarocks install lapis`
 * `luarocks install bcrypt`
 * `luarocks install i18n`
-* `luarocks install mailgun`
 * `luarocks install lua-resty-mail`
 
 * Install and configure [PostgreSQL](https://www.postgresql.org/download/). Create `mudletrepo` user, password, and database in plsql ([instructions](https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e)). Check the development config in [config.lua](config.lua) for defaults currently in use during development.

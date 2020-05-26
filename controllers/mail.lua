@@ -12,7 +12,6 @@ function mail:send(subject, body, user)
     username = self.config.smtp_username,
     password = self.config.smtp_password,
   })
-  print(inspect(mailer))
   assert_error(mailer, err)
   local ok,err = mailer:send({
     from = self.config.sender_address,

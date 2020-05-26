@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="icon" href="https://www.mudlet.org/wp-content/uploads/2017/04/cropped-mudlet_main_512x512-32x32.png" sizes="32x32" />
     <link rel="icon" href="https://www.mudlet.org/wp-content/uploads/2017/04/cropped-mudlet_main_512x512-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="https://www.mudlet.org/wp-content/uploads/2017/04/cropped-mudlet_main_512x512-180x180.png" />

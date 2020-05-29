@@ -46,4 +46,9 @@ app:match("changepackage", "/changepackage", respond_to(changepackage))
 app:match("verifyemail", "/verifyemail", respond_to(verify_email))
 app:match("resendverification", "/resendverification", respond_to(resend_verification))
 
+if config._name == "development" or config.name == "docker" or config.name == "kubernetes" then
+  local user = Users:create_demo_user()
+  if not user then yield_error("Couldn't create demo user.") end
+end
+
 return app

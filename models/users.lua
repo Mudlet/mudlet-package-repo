@@ -76,4 +76,16 @@ function Users:get_users()
   return self:select("order by name asc")
 end
 
+function Users:create_demo_user()
+  local user = self:create {
+    name = "demo",
+    password = bcrypt.digest(string.format("demodemo%s", token, config.salt),
+    admin = false,
+    email = "demo@example.com",
+    email_ver_code = uuid(),
+    email_verified = true,
+  }
+  return user
+end
+
 return Users

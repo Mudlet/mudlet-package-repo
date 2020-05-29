@@ -1,0 +1,17 @@
+<h1>
+  Packages we've got
+</h1>
+<hr>
+<div class="row">
+  <div class="col-sm-6">
+    <% for i, item in ipairs(packages) do %>
+      <div class="card bg-light mb-3" style="max-width: 18rem;" data-toggle="tooltip" data-placement="right" title="<%= item.description %>">
+        <img class="card-img-top" src="static/images/package-icon-missing.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text"><span class="badge badge-secondary"><%= item.game %></span></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

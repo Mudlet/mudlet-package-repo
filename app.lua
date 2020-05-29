@@ -12,6 +12,7 @@ local register = require("controllers.register")
 local uploadpackage = require("controllers.uploadpackage")
 local changepackage = require("controllers.changepackage")
 local deletepackage = require("controllers.deletepackage")
+local packages = require("controllers.packages")
 local account = require("controllers.account")
 local verify_email = require("controllers.verifyemail")
 local app_helpers = require("lapis.application")
@@ -29,10 +30,7 @@ app:before_filter(config_before)
 app:before_filter(check_auth)
 
 -- base route
-app:get("index", "/", capture_errors(function(self)
-  local name = self.session.name or "unknown"
-  return self.i18n("greeting", {name})
-end))
+app:get("index", "/", capture_errors(respond_to(packages)))
 
 app:get("packages", "/packages", capture_errors(function()
   local packages = db.select("* from packages")

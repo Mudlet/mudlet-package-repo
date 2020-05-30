@@ -53,4 +53,5 @@ config({'kubernetes'}, {
   smtp_password = os.getenv("SMTP_PASSWORD")
 })
 
-print("DATA DIR IS"..config.data_dir)
+print("ENV DATA DIR IS: ".. os.getenv("DATA_DIR"))
+print("DATA DIR IS: ".. require("lapis.config").get().data_dir)

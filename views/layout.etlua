@@ -14,7 +14,7 @@
   </head>
   <body>
     <header id="header">
-      <img style='height: 100%; width: 10%; object-fit: contain; align=left' src="static/images/mudlet.png">
+      <img style='height: 100%; width: 10%; object-fit: contain; align=left' src="static/images/mudlet_192px.png">
     </header>
     <div id="wrapper">
       <main>

@@ -4,7 +4,7 @@ on:
     branches: development
 
 jobs:
-  update-autocompletion:
+  update-website:
     runs-on: ubuntu-latest
     if: github.repository == 'Mudlet/mudlet-package-repo'
 

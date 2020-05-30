@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /usr/local/bin/kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: package-repo
+  name: package-repo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: package-repo
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /usr/local/bin/kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: package-repo
+    spec:
+      containers:
+      - env:
+        - name: LAPIS_ENVIRONMENT
+          value: kubernetes
+        # to be fixed with a DNS when that is hooked up, for now has to be hardcoded
+        - name: REPO_BASE_URL
+          value: "http://45.79.247.15:8080/"
+        - name: DATA_DIR
+          value: "/var/data"
+        - name: SMTP_HOST
+          valueFrom:
+              secretKeyRef:
+                name: mailgun-settings
+                key: host
+        - name: SMTP_PORT
+          valueFrom:
+              secretKeyRef:
+                name: mailgun-settings
+                key: port
+        - name: SMTP_USERNAME
+          valueFrom:
+              secretKeyRef:
+                name: mailgun-settings
+                key: username
+        - name: SMTP_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: mailgun-settings
+                key: password
+        image: mudlet/mudlet-package-repo:add-kubernetes
+        imagePullPolicy: "Always"
+        name: package-repo
+        ports:
+        - containerPort: 8080
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/data
+          name: package-repo-claim1
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes:
+      - name: package-repo-claim1
+        persistentVolumeClaim:
+          claimName: package-repo-claim1
+status: {}

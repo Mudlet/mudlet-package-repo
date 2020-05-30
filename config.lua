@@ -15,7 +15,7 @@ config({'development', 'docker', 'kubernetes'}, {
   salt = "12",
   body_size = "20m",
   num_workers = 2,
-  data_dir = "data",
+  data_dir = os.getenv("DATA_DIR") or "data",
   smtp_host = "127.0.0.1",
   smtp_port = 1025,
   smtp_username = nil,

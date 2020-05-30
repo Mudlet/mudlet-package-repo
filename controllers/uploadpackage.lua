@@ -40,42 +40,42 @@ local function save_file(self)
   print"1"
   -- start in the data directory
   local success, message = lfs.chdir(self.config.data_dir)
-  if not success then yield_error("Couldn't enter data directory: "..message) end
+  if not success then lfs.chdir(cwd); yield_error("Couldn't enter data directory: "..message) end
   print"2"
 
   -- create username directory if it doesn't exist, validate it's a dir and enter it
   if not isFileOrDir(self.session.name) then
     print"3"
     local success, message = lfs.mkdir(self.session.name)
-    if not success then yield_error("Couldn't create username directory: "..message) end
+    if not success then lfs.chdir(cwd); yield_error("Couldn't create username directory: "..message) end
   end
   print"4"
   -- yield_error(isDir(self.session.name), self.i18n("err_save_file"))
   local success, message = lfs.chdir(self.session.name)
-  if not success then yield_error("Couldn't enter username directory: "..message) end
+  if not success then lfs.chdir(cwd); yield_error("Couldn't enter username directory: "..message) end
   print"5"
 
   -- and again for the pkg name
   if not isFileOrDir(self.params.name) then
     local success, message = lfs.mkdir(self.params.name)
-    if not success then yield_error("Couldn't create package directory: "..message) end
+    if not success then lfs.chdir(cwd); yield_error("Couldn't create package directory: "..message) end
   end
   -- yield_error(isDir(self.params.name), self.i18n("err_save_file"))
   local success, message = lfs.chdir(self.params.name)
-  if not success then yield_error("Couldn't enter package directory: "..message) end
+  if not success then lfs.chdir(cwd); yield_error("Couldn't enter package directory: "..message) end
 
   -- and again for the pkg version
   if not isFileOrDir(self.params.version) then
     local success, message = lfs.mkdir(self.params.version)
-    if not success then yield_error("Couldn't create package version directory: "..message) end
+    if not success then lfs.chdir(cwd); yield_error("Couldn't create package version directory: "..message) end
   end
   -- yield_error(isDir(self.params.version), self.i18n("err_save_file"))
   local success, message = lfs.chdir(self.params.version)
-  if not success then yield_error("Couldn't enter package version directory: "..message) end
+  if not success then lfs.chdir(cwd); yield_error("Couldn't enter package version directory: "..message) end
 
   local filename = string.format("%s-%s.%s", self.params.name, self.params.version, file_extension)
   local file, message = io.open(filename, 'w')
-  if not file then yield_error("Couldn't open package file for writing: "..message) end
+  if not file then lfs.chdir(cwd); yield_error("Couldn't open package file for writing: "..message) end
   file:write(self.params.file.content)
   file:flush()
   file:close()

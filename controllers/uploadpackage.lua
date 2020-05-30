@@ -36,16 +36,20 @@ local function save_file(self)
   -- record our current directory so we can change back to it
   local cwd = lfs.currentdir()
   local file_extension = string.match(self.params.file.filename, ".+%.(.+)")
-
+  print"1"
   -- start in the data directory
   assert_error(lfs.chdir(self.config.data_dir))
+  print"2"
 
   -- create username directory if it doesn't exist, validate it's a dir and enter it
   if not isFileOrDir(self.session.name) then
+  print"3"
     lfs.mkdir(self.session.name)
   end
+  print"4"
   assert_error(isDir(self.session.name), self.i18n("err_save_file"))
   lfs.chdir(self.session.name)
+  print"5"
 
   -- and again for the pkg name
   if not isFileOrDir(self.params.name) then

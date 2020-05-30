@@ -42,10 +42,10 @@ local function save_file(self)
   local success, message = lfs.chdir(self.config.data_dir)
   if not success then lfs.chdir(cwd); yield_error("Couldn't enter data directory: "..message) end
 
-  local handle = io.popen("ps -u")
+  local handle = io.popen("ps")
   local result = handle:read("*a")
   handle:close()
-  print("ps -u result: "..result)
+  print("ps result: "..result)
 
   -- create username directory if it doesn't exist, validate it's a dir and enter it
   if not isFileOrDir(self.session.name) then

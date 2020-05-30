@@ -1,5 +1,7 @@
 name: Update website
-on: [push, pull_request]
+on: 
+  push:
+    branches: development
 
 jobs:
   update-autocompletion:
@@ -16,3 +18,4 @@ jobs:
         repository: mudlet/mudlet-package-repo
         tag_with_ref: true
         tag_with_sha: true
+        add_git_labels: true

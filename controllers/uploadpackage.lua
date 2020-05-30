@@ -1,6 +1,7 @@
 local app_helpers = require("lapis.application")
 local validate = require("lapis.validate")
-local capture_errors, assert_error = app_helpers.capture_errors, app_helpers.assert_error
+local capture_errors, assert_error, yield_error =
+  app_helpers.capture_errors, app_helpers.assert_error, app_helpers.yield_error
 local lfs = require('lfs')
 local Packages = require("models.packages")
 local Users = require("models.users")

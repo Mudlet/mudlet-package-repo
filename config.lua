@@ -48,6 +48,8 @@ config({'kubernetes'}, {
     host = "psql.default.svc.cluster.local"
   },
   code_cache = "on",
+  -- nginx spawns child processes as 'nobody' by default, which means they can't write to data directories
+  -- under kubernetes since k8s default process is root and thus the data folder is owned by it
   custom_user = "user root root;",
   smtp_host = os.getenv("SMTP_HOST"),
   smtp_port = os.getenv("SMTP_PORT"),

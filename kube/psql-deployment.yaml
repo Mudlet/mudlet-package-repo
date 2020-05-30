@@ -52,7 +52,7 @@ spec:
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-      - name: postgres
+      - name: postgres:alpine
         persistentVolumeClaim:
           claimName: postgres
       - name: psql-claim1

@@ -10,8 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      
-    - uses: docker/build-push-action@v1
+    
+    - name: Build & push new image
+      uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKERHUB_LOGIN }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -19,3 +20,25 @@ jobs:
         tag_with_ref: true
         tag_with_sha: true
         add_git_labels: true
+
+    - name: Delete old cluster deployment
+      uses: steebchen/kubectl@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: delete deployment package-repo
+
+    - name: Deploy new cluster
+      uses: steebchen/kubectl@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: apply -f kube
+
+    - name: Verify deployment
+      uses: steebchen/kubectl@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        KUBECTL_VERSION: "1.15"
+      with:
+        args: '"rollout status deployment/package-repo"'

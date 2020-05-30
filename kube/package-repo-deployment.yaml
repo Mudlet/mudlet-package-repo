@@ -53,7 +53,7 @@ spec:
               secretKeyRef:
                 name: mailgun-settings
                 key: password
-        image: mudlet/mudlet-package-repo:add-kubernetes
+        image: mudlet/mudlet-package-repo:development
         imagePullPolicy: "Always"
         name: package-repo
         ports:

@@ -52,3 +52,5 @@ config({'kubernetes'}, {
   smtp_username = os.getenv("SMTP_USERNAME"),
   smtp_password = os.getenv("SMTP_PASSWORD")
 })
+
+print("DATA DIR IS"..config.data_dir)

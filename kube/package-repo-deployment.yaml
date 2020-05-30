@@ -45,16 +45,11 @@ spec:
         - containerPort: 8080
         resources: {}
         volumeMounts:
-        - mountPath: /var/www
-          name: package-repo-claim0
         - mountPath: /var/data
           name: package-repo-claim1
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-      - name: package-repo-claim0
-        persistentVolumeClaim:
-          claimName: package-repo-claim0
       - name: package-repo-claim1
         persistentVolumeClaim:
           claimName: package-repo-claim1

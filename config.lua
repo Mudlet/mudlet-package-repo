@@ -11,6 +11,7 @@ config({'development', 'docker', 'kubernetes'}, {
   },
   secret = "pleasechangeme",
   custom_resolver = "",
+  custom_user = "",
   session_name = "mudlet-package-repo-session",
   salt = "12",
   body_size = "20m",
@@ -47,6 +48,7 @@ config({'kubernetes'}, {
     host = "psql.default.svc.cluster.local"
   },
   code_cache = "on",
+  custom_user = "user root root;",
   smtp_host = os.getenv("SMTP_HOST"),
   smtp_port = os.getenv("SMTP_PORT"),
   smtp_username = os.getenv("SMTP_USERNAME"),

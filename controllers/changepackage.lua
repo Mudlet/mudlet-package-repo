@@ -71,7 +71,7 @@ end
 return {
   GET = capture_errors(function(self)
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
-    -- assert_error(self.session.verified, self.i18n("err_email_not_verified"))
+    assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     local user = Users:get_user(self.session.name)
     if not user.admin then
       self.myPackages = Packages:get_user_packages(user.id)
@@ -83,7 +83,7 @@ return {
   POST = capture_errors(function(self)
     -- must be logged in to upload
     assert_error(self.session.name, self.i18n("err_not_logged_in"))
-    -- assert_error(self.session.verified, self.i18n("err_email_not_verified"))
+    assert_error(self.session.verified, self.i18n("err_email_not_verified"))
     local user = Users:get_user(self.session.name)
     if not user.admin then
       self.myPackages = Packages:get_user_packages(user.id)

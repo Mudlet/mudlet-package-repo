@@ -18,7 +18,6 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         repository: mudlet/mudlet-package-repo
         tag_with_ref: true
-        tag_with_sha: true
         add_git_labels: true
 
     - name: Delete old cluster deployment

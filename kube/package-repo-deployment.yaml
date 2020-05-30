@@ -33,11 +33,26 @@ spec:
           value: "http://45.79.247.15:8080/"
         - name: DATA_DIR
           value: "/var/data"
-        - name: MAILGUN_API_KEY
+        - name: SMTP_HOST
           valueFrom:
               secretKeyRef:
-                name: mailgun-api-key
-                key: key
+                name: mailgun-settings
+                key: host
+        - name: SMTP_PORT
+          valueFrom:
+              secretKeyRef:
+                name: mailgun-settings
+                key: port
+        - name: SMTP_USERNAME
+          valueFrom:
+              secretKeyRef:
+                name: mailgun-settings
+                key: username
+        - name: SMTP_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: mailgun-settings
+                key: password
         image: mudlet/mudlet-package-repo:add-kubernetes
         imagePullPolicy: "Always"
         name: package-repo

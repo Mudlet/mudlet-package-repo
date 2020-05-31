@@ -14,7 +14,17 @@
   </head>
   <body>
     <header id="header">
-      <img style='height: 100%; width: 10%; object-fit: contain; align=left' src="static/images/mudlet_192px.png">
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-2">
+              <img style='height: 100%; width: 30%; object-fit: contain; align=left' src="static/images/mudlet_192px.png" alt="Mudlet logo">
+            </div>
+            <div class="col text-muted">
+              <h2>work-in-progress</h2>
+              <div>This website under heavy development: the design, features, and content is not final. Packages uploaded to the website may be reset during development.</div>
+            </div>
+          </div>
+      </div>
     </header>
     <div id="wrapper">
       <main>

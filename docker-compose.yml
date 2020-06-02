@@ -33,6 +33,7 @@ services:
     volumes:
       - ./web:/var/www
       - ./data:/var/data
+      - ./views:/usr/src/app/views
     ports:
       - 8080:8080
     restart: unless-stopped

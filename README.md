@@ -37,9 +37,8 @@ export SMTP_PORT="587"
 export SMTP_USERNAME="postmaster@..."
 export SMTP_PASSWORD="..."
 ```
-</details>
-
 Submit changes via PR, and happy hacking!
+</details>
 
 ## Via local development
 
@@ -65,9 +64,9 @@ Submit changes via PR, and happy hacking!
 Finally, start the server with run `lapis server` and visit http://localhost:8080 to see the page!
 
 The code cache is currently turned off, so refreshing the page will show any changes to the code immediately.
-</details>
 
 Submit changes via PR, and happy hacking!
+</details>
 
 # Translation
 We are using the i18n module by kikito for internationalization. https://github.com/kikito/i18n.lua

@@ -17,24 +17,34 @@ We do not actually make use of lapis-chan, but it served as an example from whic
 
 By choosing Docker you don't have to worry about installing and configuring the dependencies or PostgreSQL yourself.
 
-
+<details>
+  <summary>Steps for Docker:</summary>
+  
 * Install [Docker](https://docs.docker.com/engine/install/)
 * Install [docker-compose](https://docs.docker.com/compose/install/)
-* Setup a Mailgun account and save the credentials as environment variables, for example:
+* Run `docker-compose build` to build the image.
+* Run `docker-compose up` to run the website.
+* Login with `demo` and `supersecretpassword`.
+
+To refresh the website, rebuild and re-run it again.
+
+To delete all data and restart from scratch, `docker-compose rm` and `docker volume rm mudlet-package-repo_postgres`.
+
+* If you'd like to test sending verification emails, you'll need to configure an SMTP provider (ie [gmail](https://support.google.com/mail/answer/7126229?hl=en) or [mailgun](https://www.mailgun.com/)).
 ```bash
 export SMTP_HOST="smtp.mailgun.org"
 export SMTP_PORT="587"
 export SMTP_USERNAME="postmaster@..."
 export SMTP_PASSWORD="..."
 ```
-* Run `docker-compose build` to build the image.
-* Run `docker-compose up` to run the website.
+</details>
 
-To refresh the website, rebuild and re-run it again.
-
-To delete all data and restart from scratch, `docker-compose rm` and `docker volume rm mudlet-package-repo_postgres`.
+Submit changes via PR, and happy hacking!
 
 ## Via local development
+
+<details>
+  <summary>Steps for local:</summary>
 
 * Install [OpenResty](https://openresty.org/en/installation.html)
 * Install [Luarocks](https://github.com/luarocks/luarocks/wiki/Download)
@@ -55,6 +65,7 @@ To delete all data and restart from scratch, `docker-compose rm` and `docker vol
 Finally, start the server with run `lapis server` and visit http://localhost:8080 to see the page!
 
 The code cache is currently turned off, so refreshing the page will show any changes to the code immediately.
+</details>
 
 Submit changes via PR, and happy hacking!
 

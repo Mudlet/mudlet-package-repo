@@ -31,11 +31,7 @@ services:
       - SMTP_USERNAME
       - SMTP_PASSWORD
     volumes:
-      - ./web:/var/www
-      - ./data:/var/data
-      - ./views:/usr/src/app/views
-      - ./controllers:/usr/src/app/controllers
-      - ./models:/usr/src/app/models
+      - .:/usr/src/app
     ports:
       - 8080:8080
     restart: unless-stopped

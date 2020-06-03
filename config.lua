@@ -34,7 +34,7 @@ config({'docker'}, {
   postgres = {
     host = "psql"
   },
-  custom_user = "user root root;",
+  code_cache = "on",
   smtp_host = os.getenv("SMTP_HOST"),
   smtp_port = os.getenv("SMTP_PORT"),
   smtp_username = os.getenv("SMTP_USERNAME"),

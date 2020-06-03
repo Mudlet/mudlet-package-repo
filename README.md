@@ -26,7 +26,7 @@ By choosing Docker you don't have to worry about installing and configuring the 
 * Run `docker-compose up` to run the website.
 * Login with `demo` and `supersecretpassword`.
 
-To refresh the website, rebuild and re-run it again.
+Server can be run in daemon mode by using `docker-compose up -d` and stopped with `docker-compose down`. The code cache is disabled, so changes can be reflected immediately by refreshing the page.
 
 To delete all data and restart from scratch, `docker-compose rm` and `docker volume rm mudlet-package-repo_postgres`.
 

@@ -23,8 +23,6 @@ RUN apk del .build-deps
 # Set the working directory
 WORKDIR /usr/src/app
 
-COPY . .
-
 EXPOSE 8080
 
 CMD lapis migrate $LAPIS_ENVIRONMENT && lapis server $LAPIS_ENVIRONMENT

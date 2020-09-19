@@ -50,6 +50,7 @@ Submit changes via PR, and happy hacking!
 * `sudo apt install libssl-dev` (on Ubuntu)
 * `luarocks install lapis`
 * `luarocks install bcrypt`
+* `luarocks install inspect`
 * `luarocks install i18n`
 * `luarocks install lua-resty-mail`
 

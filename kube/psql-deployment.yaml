@@ -36,7 +36,7 @@ spec:
           value: pleasechangeme
         - name: POSTGRES_USER
           value: mudletrepo
-        image: postgres
+        image: postgres:alpine
         imagePullPolicy: "IfNotPresent"
         name: psql
         ports:
@@ -52,7 +52,7 @@ spec:
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-      - name: postgres:alpine
+      - name: postgres
         persistentVolumeClaim:
           claimName: postgres
       - name: psql-claim1

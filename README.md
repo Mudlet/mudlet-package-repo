@@ -1,6 +1,8 @@
 # Mudlet Package Repo
 This server will power the Mudlet package repository and serve as a reference implementation for any other person or organization which may want to host their own repository for Mudlet packages.
 
+Want a preview? Available at http://172.105.1.54:8080 (alpha)
+
 It is implemented using Lapis ([API](https://leafo.net/lapis/reference.html)), which is a lua web framework that runs inside of OpenResty ([API](https://github.com/openresty/lua-nginx-module#ngxtimerat)), a custom implementation of NginX. We make use of the follow luarocks:
 
 * lapis https://github.com/leafo/lapis

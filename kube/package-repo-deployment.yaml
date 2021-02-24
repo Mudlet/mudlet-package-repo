@@ -30,7 +30,7 @@ spec:
           value: kubernetes
         # to be fixed with a DNS when that is hooked up, for now has to be hardcoded
         - name: REPO_BASE_URL
-          value: "http://45.79.247.15:8080/"
+          value: "http://172.105.1.54:8080/"
         - name: DATA_DIR
           value: "/var/data"
         - name: SMTP_HOST

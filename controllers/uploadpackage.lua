@@ -134,6 +134,6 @@ return {
       extension = file_extension
     })
     assert_error(package, err)
-    return self.i18n("upload_success", {url})
+    return self.i18n("upload_success", {filename})
   end)
 }

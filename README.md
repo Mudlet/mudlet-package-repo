@@ -17,7 +17,7 @@ We do not actually make use of lapis-chan, but it served as an example from whic
 
 ## Via Docker
 
-By choosing Docker you don't have to worry about installing and configuring the dependencies or PostgreSQL yourself.
+By choosing Docker you do not have to worry about installing and configuring the dependencies or PostgreSQL yourself.
 
 <details>
   <summary>Steps for Docker:</summary>
@@ -74,4 +74,4 @@ Submit changes via PR, and happy hacking!
 # Translation
 We are using the i18n module by kikito for internationalization. https://github.com/kikito/i18n.lua
 
-In the static/i18n folder in the project there are several .lua files for i18n translations. If you look in en.lua all of the string keys which are in use through the site are listed, and adding the corresponding key to the de.lua file for instance will add the German translation. Then when the locale is loaded it will load the entries from the language which matches the locale set by the user. If the key isn't found in that locale (en-US for instance) then it will move to the parent locale (en in the example case). If it still doesn't find an entry for that key, it will look in the default (en in our case) and load that. TODO: Figure out getting this in crowdin like Mudlet.
+In the static/i18n folder in the project there are several .lua files for i18n translations. If you look in en.lua all of the string keys which are in use through the site are listed, and adding the corresponding key to the de.lua file for instance will add the German translation. Then when the locale is loaded it will load the entries from the language which matches the locale set by the user. If the key is not found in that locale (en-US for instance) then it will move to the parent locale (en in the example case). If it still does not find an entry for that key, it will look in the default (en in our case) and load that. TODO: Figure out getting this in crowdin like Mudlet.

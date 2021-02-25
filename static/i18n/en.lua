@@ -20,7 +20,7 @@ return {
     password_help = "Your password must be 8+ characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.",
     update_password = "Update password",
     missing_new_password = "Please enter the new password.",
-    confirmation_password_must_match = "Confirmation password didn't match your new password - make sure it does.",
+    confirmation_password_must_match = "Confirmation password did not match your new password - make sure it does.",
     old_password_mismatch = "Old password needs to match the password you'd like to change.",
     login = "login",
     verify_password = "Verify password",

@@ -23,7 +23,7 @@ local function isDir(name)
   return is, err
 end
 
--- If it isn't a directory, but we can rename it to itself, then it is a file
+-- If it is no directory, but we can rename it to itself, then it is a file
 local function isFile(name)
   if not isDir(name) then
     return os.rename(name,name) and true or false
@@ -40,45 +40,45 @@ local function save_file(self)
 
   -- start in the data directory
   local success, message = lfs.chdir(self.config.data_dir)
-  if not success then lfs.chdir(cwd); yield_error("Couldn't enter data directory: "..message) end
+  if not success then lfs.chdir(cwd); yield_error("Could not enter data directory: "..message) end
 
   local handle = io.popen("ps")
   local result = handle:read("*a")
   handle:close()
   print("ps result: "..result)
 
-  -- create username directory if it doesn't exist, validate it's a dir and enter it
+  -- create username directory if it does not exist, validate it's a dir and enter it
   if not isFileOrDir(self.session.name) then
     local success, message = lfs.mkdir(self.session.name)
-    if not success then lfs.chdir(cwd); yield_error("Couldn't create username directory: "..message) end
+    if not success then lfs.chdir(cwd); yield_error("Could not create username directory: "..message) end
   end
   local success, message = lfs.chdir(self.session.name)
-  if not success then lfs.chdir(cwd); yield_error("Couldn't enter username directory: "..message) end
+  if not success then lfs.chdir(cwd); yield_error("Could not enter username directory: "..message) end
 
   -- and again for the pkg name
   if not isFileOrDir(self.params.name) then
     local success, message = lfs.mkdir(self.params.name)
-    if not success then lfs.chdir(cwd); yield_error("Couldn't create package directory: "..message) end
+    if not success then lfs.chdir(cwd); yield_error("Could not create package directory: "..message) end
   end
   local success, message = lfs.chdir(self.params.name)
-  if not success then lfs.chdir(cwd); yield_error("Couldn't enter package directory: "..message) end
+  if not success then lfs.chdir(cwd); yield_error("Could not enter package directory: "..message) end
 
   -- and again for the pkg version
   if not isFileOrDir(self.params.version) then
     local success, message = lfs.mkdir(self.params.version)
-    if not success then lfs.chdir(cwd); yield_error("Couldn't create package version directory: "..message) end
+    if not success then lfs.chdir(cwd); yield_error("Could not create package version directory: "..message) end
   end
   local success, message = lfs.chdir(self.params.version)
-  if not success then lfs.chdir(cwd); yield_error("Couldn't enter package version directory: "..message) end
+  if not success then lfs.chdir(cwd); yield_error("Could not enter package version directory: "..message) end
 
   local filename = string.format("%s-%s.%s", self.params.name, self.params.version, file_extension)
   local file, message = io.open(filename, 'w')
-  if not file then lfs.chdir(cwd); yield_error("Couldn't open package file for writing: "..message) end
+  if not file then lfs.chdir(cwd); yield_error("Could not open package file for writing: "..message) end
   file:write(self.params.file.content)
   file:flush()
   file:close()
   local success, message = lfs.chdir(cwd)
-  if not success then yield_error("Couldn't change back to the application's working directory: ".. message) end
+  if not success then yield_error("Could not change back to the application's working directory: ".. message) end
 end
 
 return {

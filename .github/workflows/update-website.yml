@@ -2,6 +2,7 @@ name: Update website
 on: 
   push:
     branches: development
+  pull_request:
 
 jobs:
   update-website:
@@ -15,8 +16,8 @@ jobs:
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ secrets.DOCKERHUB_LOGIN }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build image and push to Dockerhub
       id: docker_build

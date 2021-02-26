@@ -10,6 +10,9 @@ jobs:
     if: github.repository == 'Mudlet/mudlet-package-repo'
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
       

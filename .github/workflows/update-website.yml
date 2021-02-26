@@ -2,7 +2,6 @@ name: Update website
 on:
   push:
     branches: development
-  pull_request:
 
 
 jobs:

@@ -27,7 +27,7 @@ function mail:send_verification(user, i18n)
   local alternate_url = string.format("%sverifyemail", self.config.base_url)
   local url = string.format("%s?ver_code=%s&email=%s", alternate_url, ver_code, user.email)
   local message_body = i18n("verify_email_body", {user.name, self.config.website_name, url, alternate_url, ver_code})
-  local message_subject = i18n("verify_email_subject", {self.config.website_name})
+  local message_subject = escape(i18n("verify_email_subject", {self.config.website_name}))
   self:send(message_subject, message_body, user)
 end
 

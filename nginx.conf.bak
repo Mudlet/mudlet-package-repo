@@ -1,0 +1,53 @@
+env REPO_BASE_URL;
+env SMTP_HOST;
+env SMTP_PORT;
+env SMTP_USERNAME;
+env SMTP_PASSWORD;
+env DATA_DIR;
+
+worker_processes ${{NUM_WORKERS}};
+error_log stderr notice;
+daemon off;
+${{CUSTOM_USER}}
+pid logs/nginx.pid;
+
+events {
+  worker_connections 1024;
+}
+
+http {
+  log_format perf '$remote_addr $status - $request_length $bytes_sent'
+  include mime.types;
+  client_max_body_size ${{BODY_SIZE}};
+  client_body_buffer_size ${{BODY_SIZE}};
+  init_by_lua_block {
+    require "lfs"
+    require "socket"
+    require "lpeg"
+  }
+  server {
+    listen ${{PORT}};
+    lua_code_cache ${{CODE_CACHE}};
+
+    location / {
+      ${{CUSTOM_RESOLVER}}
+      default_type text/html;
+      content_by_lua '
+        require("lapis").serve("app")
+      ';
+    }
+
+    location /static/ {
+      include mime.types;
+      alias static/;
+    }
+
+    location /data/ {
+      alias ${{DATA_DIR}}/;
+    }
+
+    location /favicon.ico {
+      alias static/favicon.ico;
+    }
+  }
+}

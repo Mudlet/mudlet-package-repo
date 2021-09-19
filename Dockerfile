@@ -9,6 +9,7 @@ RUN set -xe && \
             openssl-dev \
             pcre-dev \
             perl \
+            php-fpm \
             zlib-dev \
             linux-headers
 
@@ -28,3 +29,13 @@ COPY . .
 EXPOSE 8080
 
 CMD lapis migrate $LAPIS_ENVIRONMENT && lapis server $LAPIS_ENVIRONMENT
+
+
+# Add support for Certbot's SSL certificates
+RUN mkdir -p /usr/local/share/ca-certificates
+ADD fullchain.pem /usr/local/share/ca-certificates
+ADD privkey.pem /usr/local/share/ca-certificates
+RUN chmod 644 /usr/local/share/ca-certificates/fullchain.pem
+RUN chmod 644 /usr/local/share/ca-certificates/privkey.pem
+RUN update-ca-certificates
+

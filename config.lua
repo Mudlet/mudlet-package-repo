@@ -21,10 +21,10 @@ config({'development', 'docker', 'kubernetes'}, {
   smtp_port = 1025,
   smtp_username = nil,
   smtp_password = nil,
-  sender_address = "do-not-reply@mudlet.org",
-  admin_email = "demonnic@gmail.com",
-  admin_password = "supersecretadminpass", -- this can be removed once you've viewed the page for the first time
-  base_url = "http://localhost:8080/",
+  sender_address = "mudletrepotest@gmail.com",
+  admin_email = "mudletrepotest@gmail.com",
+  admin_password = nil, -- this can be removed once you've viewed the page for the first time
+  base_url = "https://gw.cloudwatch.net:8080/",
   website_name = "Mudlet Package Repository (experimental)"
 })
 

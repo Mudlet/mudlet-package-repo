@@ -28,7 +28,7 @@ By choosing Docker you don't have to worry about installing and configuring the 
 * Install [docker-compose](https://docs.docker.com/compose/install/)
 * Run `docker-compose build` to build the image.
 * Run `docker-compose up` to run the website.
-* Login with `demo` and `supersecretpassword`.
+* Login with `admin` and ` supersecretadminpass`.
 
 To refresh the website, rebuild and re-run it again.
 

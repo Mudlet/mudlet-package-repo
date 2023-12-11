@@ -1,7 +1,7 @@
 # Mudlet Package Repo
 This server will power the Mudlet package repository and serve as a reference implementation for any other person or organization which may want to host their own repository for Mudlet packages.
 
-Want a preview? Available at http://172.105.1.54:8080 (alpha)
+Want a preview? Available at https://gw.cloudwatch.net:8080 (alpha)
 
 It is implemented using Lapis ([API](https://leafo.net/lapis/reference.html)), which is a lua web framework that runs inside of OpenResty ([API](https://github.com/openresty/lua-nginx-module#ngxtimerat)), a custom implementation of NginX. Check out the [technical vision](https://wiki.mudlet.org/w/Mudlet:Repository_Technical_Vision) to get a sense of our development style.
 
@@ -11,9 +11,7 @@ We make use of the follow luarocks:
 * bcrypt http://github.com/mikejsavage/lua-bcrypt
 * i18n https://github.com/kikito/i18n.lua
 * lua-resty-mail https://github.com/GUI/lua-resty-mail
-* lua-mailgun https://github.com/leafo/lua-mailgun
-
-We do not actually make use of lapis-chan, but it served as an example from which examples and inspiration were drawn: https://github.com/karai17/lapis-chan
+* mailgun https://github.com/leafo/lua-mailgun
 
 # Getting started with development
 
@@ -26,9 +24,10 @@ By choosing Docker you don't have to worry about installing and configuring the 
   
 * Install [Docker](https://docs.docker.com/engine/install/)
 * Install [docker-compose](https://docs.docker.com/compose/install/)
+* Open config.lua in your editor and make any necessary edits.
 * Run `docker-compose build` to build the image.
 * Run `docker-compose up` to run the website.
-* Login with `demo` and `supersecretpassword`.
+* Login with the relevant credentials.
 
 To refresh the website, rebuild and re-run it again.
 

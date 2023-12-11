@@ -1,23 +1,18 @@
 local lapis = require("lapis")
 local respond_to = lapis.application.respond_to
 local app = lapis.Application()
-local config = require("lapis.config").get()
 local db = require("lapis.db")
-local Model = require("lapis.db.model").Model
-local Users = require("models.users")
-local Packages = require("models.packages")
 local login = require("controllers.login")
 local logout = require("controllers.logout")
 local register = require("controllers.register")
 local uploadpackage = require("controllers.uploadpackage")
 local changepackage = require("controllers.changepackage")
-local deletepackage = require("controllers.deletepackage")
 local packages = require("controllers.packages")
 local account = require("controllers.account")
 local verify_email = require("controllers.verifyemail")
 local app_helpers = require("lapis.application")
 local resend_verification = require("controllers.resendverification")
-local capture_errors, assert_error = app_helpers.capture_errors, app_helpers.assert_error
+local capture_errors = app_helpers.capture_errors
 math.randomseed(os.clock()*1000000)
 
 app:enable("etlua")

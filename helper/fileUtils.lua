@@ -1,0 +1,76 @@
+local lfs = require('lfs')
+local app_helpers = require("lapis.application")
+local yield_error =
+ app_helpers.yield_error
+local FileUtils = {}
+
+
+-- if you can change the name of a thing to itself, it is a file or folder
+-- best work around I could find for testing this
+function FileUtils:isFileOrDir(name)
+  if type(name)~="string" then return false end
+  return os.rename(name, name)
+end
+
+-- use LFS's chdir() function to determine if the target is a directory
+-- there is no check for if something is a file or directory in lua or LFS by default
+function FileUtils:isDir(name)
+  if type(name)~="string" then return false end
+  local cd = lfs.currentdir()
+  local is, err = lfs.chdir(name)
+  lfs.chdir(cd)
+  return is, err
+end
+
+-- use the above functions to check if the folders exist and
+-- create them if they do not.
+function FileUtils:save_file(app)
+  if not app then return end
+  -- record our current directory so we can change back to it
+  local cwd = lfs.currentdir()
+  local file_extension = string.match(app.params.file.filename, ".+%.(.+)")
+
+  -- start in the data directory
+  local success, message = lfs.chdir(app.config.data_dir)
+  if not success then lfs.chdir(cwd); yield_error("Couldn't enter data directory: "..message) end
+
+  local handle = io.popen("ps")
+  local result = handle:read("*a")
+  handle:close()
+  print("ps result: "..result)
+
+  -- create username directory if it doesn't exist, validate it's a dir and enter it
+  if not self:isFileOrDir(app.session.name) then
+    local success, message = lfs.mkdir(app.session.name)
+    if not success then lfs.chdir(cwd); yield_error("Couldn't create username directory: "..message) end
+  end
+  local success, message = lfs.chdir(app.session.name)
+  if not success then lfs.chdir(cwd); yield_error("Couldn't enter username directory: "..message) end
+
+  -- and again for the pkg name
+  if not self:isFileOrDir(app.params.name) then
+    local success, message = lfs.mkdir(app.params.name)
+    if not success then lfs.chdir(cwd); yield_error("Couldn't create package directory: "..message) end
+  end
+  local success, message = lfs.chdir(app.params.name)
+  if not success then lfs.chdir(cwd); yield_error("Couldn't enter package directory: "..message) end
+
+  -- and again for the pkg version
+  if not self:isFileOrDir(app.params.version) then
+    local success, message = lfs.mkdir(app.params.version)
+    if not success then lfs.chdir(cwd); yield_error("Couldn't create package version directory: "..message) end
+  end
+  local success, message = lfs.chdir(app.params.version)
+  if not success then lfs.chdir(cwd); yield_error("Couldn't enter package version directory: "..message) end
+
+  local filename = string.format("%s-%s.%s", app.params.name, app.params.version, file_extension)
+  local file, message = io.open(filename, 'w')
+  if not file then lfs.chdir(cwd); yield_error("Couldn't open package file for writing: "..message) end
+  file:write(app.params.file.content)
+  file:flush()
+  file:close()
+  local success, message = lfs.chdir(cwd)
+  if not success then yield_error("Couldn't change back to the application's working directory: ".. message) end
+end
+
+return FileUtils

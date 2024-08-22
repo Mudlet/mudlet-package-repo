@@ -1,3 +1,8 @@
+# Archived
+This repository has been archived in favour of https://github.com/Mudlet/mudlet-package-repository, which is a simpler and a more straightforward setup.
+
+Old README below:
+
 # Mudlet Package Repo
 This server will power the Mudlet package repository and serve as a reference implementation for any other person or organization which may want to host their own repository for Mudlet packages.
 
